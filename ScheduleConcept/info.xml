@@ -175,6 +175,7 @@
 <class course="8" professor="8" dur="1" group="2" requireslab="false"/>
 <class course="0" professor="0" dur="1" group="2" requireslab="false"/>
 <class course="1" professor="1" dur="1" group="2" requireslab="false"/>
+
 <!-- vtornik -->
 <class course="1" professor="1" dur="1" group="2" requireslab="false"/>
 <class course="1" professor="1" dur="1" group="2" requireslab="false"/>
@@ -183,16 +184,19 @@
 <class course="6" professor="5" dur="1" group="2" requireslab="false"/>
 <class course="15" professor="14" dur="1" group="2" requireslab="true"/>
 <class course="15" professor="14" dur="1" group="2" requireslab="true"/>
+
 <!-- srqda -->
 <class course="6" professor="5" dur="1" group="2" requireslab="false"/>
 <class course="6" professor="5" dur="1" group="2" requireslab="false"/>
 <class course="10" professor="10" dur="1" group="2" requireslab="true"/>
 <class course="10" professor="10" dur="1" group="2" requireslab="true"/>
 <class course="13" professor="6" dur="1" group="2" requireslab="false"/>
+
 <!-- fize -->
 <class course="12" professor="12" dur="1" group="2" requireslab="false"/>
 <class course="12" professor="12" dur="1" group="2" requireslab="false"/>
 <class course="12" professor="12" dur="1" group="2" requireslab="false"/>
+
 <!-- chetvurtuk -->
 <class course="10" professor="10" dur="1" group="2" requireslab="true"/>
 <class course="10" professor="10" dur="1" group="2" requireslab="true"/>
@@ -200,6 +204,7 @@
 <class course="15" professor="14" dur="1" group="2" requireslab="true"/>
 <class course="9" professor="9" dur="1" group="2" requireslab="false"/>
 <class course="9" professor="9" dur="1" group="2" requireslab="false"/>
+
 <!-- petuk -->
 <class course="11" professor="11" dur="1" group="2" requireslab="true"/>
 <class course="11" professor="11" dur="1" group="2" requireslab="true"/>
