@@ -10,8 +10,12 @@
 <prof id="8" name="Popov"/>
 <prof id="9" name="Dqnkov"/>
 <prof id="10" name="Taneva"/>
-<prof id="11" name="Jordanof THE GAME"/>
+<prof id="11" name="Jordanoff"/>
 <prof id="12" name="M.Mihajlova"/>
+<prof id="13" name="K.S.">
+<prof id="14" name="S.Stefanova">
+<prof id="15" name="V.Hinkov">
+
 
 <course id="0" name="Maths"/>
 <course id="1" name="BEL"/>
@@ -27,6 +31,9 @@
 <course id="11" name="WEBD"/>
 <course id="12" name="PE"/>
 <course id="13" name="Logics"/>
+<course id="14" name="Periferiq"/>
+<course id="15" name="APE"/>
+<course id="16" name="Analogova"/>
 
 <room name="11" lab="false" capacity="30"/>
 <room name="12" lab="false" capacity="30"/>
@@ -105,8 +112,8 @@
 <!-- Petuk -->
 <class course="9" professor="9" dur="1" group="0" requireslab="false"/>
 <class course="9" professor="9" dur="1" group="0" requireslab="false"/>
-<class course="10" professor="10" dur="1" group="0" requireslab="false"/>
-<class course="10" professor="10" dur="1" group="0" requireslab="false"/>
+<class course="10" professor="10" dur="1" group="0" requireslab="true"/>
+<class course="10" professor="10" dur="1" group="0" requireslab="true"/>
 <class course="11" professor="11" dur="1" group="0" requireslab="true"/>
 <class course="11" professor="11" dur="1" group="0" requireslab="true"/>
 
@@ -153,21 +160,58 @@
 <!-- Petuk -->
 <class course="9" professor="9" dur="1" group="1" requireslab="false"/>
 <class course="9" professor="9" dur="1" group="1" requireslab="false"/>
-<class course="10" professor="10" dur="1" group="1" requireslab="false"/>
-<class course="10" professor="10" dur="1" group="1" requireslab="false"/>
+<class course="10" professor="10" dur="1" group="1" requireslab="true"/>
+<class course="10" professor="10" dur="1" group="1" requireslab="true"/>
 <class course="11" professor="11" dur="1" group="1" requireslab="true"/>
 <class course="11" professor="11" dur="1" group="1" requireslab="true"/>
+
 <!-- 11v -->
 <!-- ponedelnik -->
+<class course="4" professor="3" dur="1" group="2" requireslab="true"/>
+<class course="4" professor="3" dur="1" group="2" requireslab="true"/>
+<class course="14" professor="13" dur="1" group="2" requireslab="true"/>
+<class course="14" professor="13" dur="1" group="2" requireslab="true"/>
+<class course="8" professor="8" dur="1" group="2" requireslab="false"/>
+<class course="8" professor="8" dur="1" group="2" requireslab="false"/>
+<class course="0" professor="0" dur="1" group="2" requireslab="false"/>
+<class course="1" professor="1" dur="1" group="2" requireslab="false"/>
 
 <!-- vtornik -->
+<class course="1" professor="1" dur="1" group="2" requireslab="false"/>
+<class course="1" professor="1" dur="1" group="2" requireslab="false"/>
+<class course="0" professor="0" dur="1" group="2" requireslab="false"/>
+<class course="0" professor="0" dur="1" group="2" requireslab="false"/>
+<class course="6" professor="5" dur="1" group="2" requireslab="false"/>
+<class course="15" professor="14" dur="1" group="2" requireslab="true"/>
+<class course="15" professor="14" dur="1" group="2" requireslab="true"/>
 
 <!-- srqda -->
+<class course="6" professor="5" dur="1" group="2" requireslab="false"/>
+<class course="6" professor="5" dur="1" group="2" requireslab="false"/>
+<class course="10" professor="10" dur="1" group="2" requireslab="true"/>
+<class course="10" professor="10" dur="1" group="2" requireslab="true"/>
+<class course="13" professor="6" dur="1" group="2" requireslab="false"/>
+
+<!-- fize -->
+<class course="12" professor="12" dur="1" group="2" requireslab="false"/>
+<class course="12" professor="12" dur="1" group="2" requireslab="false"/>
+<class course="12" professor="12" dur="1" group="2" requireslab="false"/>
 
 <!-- chetvurtuk -->
+<class course="10" professor="10" dur="1" group="2" requireslab="true"/>
+<class course="10" professor="10" dur="1" group="2" requireslab="true"/>
+<class course="15" professor="14" dur="1" group="2" requireslab="true"/>
+<class course="15" professor="14" dur="1" group="2" requireslab="true"/>
+<class course="9" professor="9" dur="1" group="2" requireslab="false"/>
+<class course="9" professor="9" dur="1" group="2" requireslab="false"/>
 
 <!-- petuk -->
-
+<class course="11" professor="11" dur="1" group="2" requireslab="true"/>
+<class course="11" professor="11" dur="1" group="2" requireslab="true"/>
+<class course="7" professor="7" dur="1" group="2" requireslab="false"/>
+<class course="7" professor="7" dur="1" group="2" requireslab="false"/>
+<class course="16" professor="15" dur="1" group="2" requireslab="false"/>
+<class course="16" professor="15" dur="1" group="2" requireslab="false"/>
 
 <!-- 11g -->
 <!-- ponedelnik -->
