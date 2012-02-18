@@ -68,7 +68,9 @@ namespace ScheduleConcept
             var sortedclasses = from c in classes
                                 orderby c.Time ascending
                                 orderby c.Day ascending
-                                group c by c.Day;
+                                group c by c.Group into a
+                                from e in a
+                                group e by e.Day;
             Console.WriteLine("       {0, -12} {1, -7} {2, -15} {3, -15} {4,-4} {5, -4}", "Time", "Group", "Course", "Professor", "Room", "Lab");
             foreach (var day in sortedclasses)
             {
