@@ -3,3 +3,4 @@ C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleC
 C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleConcept\obj\x86\Debug\ScheduleConcept.exe
 C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleConcept\obj\x86\Debug\ScheduleConcept.pdb
 C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleConcept\obj\x86\Debug\ScheduleConcept.csprojResolveAssemblyReference.cache
+C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleConcept\bin\Debug\info.xml

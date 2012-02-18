@@ -14,7 +14,7 @@ namespace ScheduleConcept
         static void Main(string[] args)
         {
             Configuration conf = Configuration.GetInstance();
-            string path = "C:/info.xml";
+            string path = "info.xml";
             Console.WriteLine("Reading from: {0}", path);
             conf.ReadFromXML(path);
             Algorithm a = Algorithm.GetInstance();
