@@ -1,0 +1,5 @@
+C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleConcept\bin\Release\ScheduleConcept.exe
+C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleConcept\bin\Release\ScheduleConcept.pdb
+C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleConcept\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleConcept\obj\x86\Release\ScheduleConcept.exe
+C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleConcept\obj\x86\Release\ScheduleConcept.pdb
