@@ -381,12 +381,13 @@ namespace ScheduleConcept
                     {
                         if (item.Any(x=>x.ClassCourse==last.ClassCourse))
                         {
+                            if (GetClassRoom(counter) == GetClassRoom(counter - 1))
+                            {
+                                secondaryscore += step;
+                            }
                             secondaryscore += step;
                         }
-                        if (GetClassRoom(counter) == GetClassRoom(counter - 1))
-                        {
-                            secondaryscore += step;
-                        }
+                        
                     }
                 }
                 if (item.Count > 0) last = item.Last();
