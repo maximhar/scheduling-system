@@ -1,0 +1,41 @@
+﻿<Window x:Class="ScheduleWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dd="clr-namespace:GongSolutions.Wpf.DragDrop;assembly=GongSolutions.Wpf.DragDrop"
+        xmlns:local="clr-namespace:ScheduleWPF"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <Style x:Key="buttonStyle">
+            <Setter Property="Button.Margin" Value="5"/>
+            <Setter Property="Button.Padding" Value="5"/>
+            <Setter Property="Button.MinWidth" Value="60"/>
+            
+        </Style>
+        <Style x:Key="dayListStyle">
+            <Setter Property="dd:DragDrop.IsDragSource" Value="True"></Setter>
+            <Setter Property="dd:DragDrop.IsDropTarget" Value="True"></Setter>
+            <Setter Property="ListBox.Margin" Value="5"></Setter>
+            <Setter Property="dd:DragDrop.DropHandler" Value="{Binding}"/>
+        </Style>
+    </Window.Resources>
+    <Window.DataContext>
+        <local:DaysModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <UniformGrid Grid.Row="0" Rows="1">
+            <ListBox ItemsSource="{Binding Monday}" Style="{StaticResource dayListStyle}"/>
+            <ListBox ItemsSource="{Binding Tuesday}" Style="{StaticResource dayListStyle}"></ListBox>
+            <ListBox ItemsSource="{Binding Wednesday}" Style="{StaticResource dayListStyle}"></ListBox>
+            <ListBox ItemsSource="{Binding Thursday}" Style="{StaticResource dayListStyle}"></ListBox>
+            <ListBox ItemsSource="{Binding Friday}" Style="{StaticResource dayListStyle}"></ListBox>
+        </UniformGrid>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Style="{StaticResource buttonStyle}">Close</Button>
+            <Button Style="{StaticResource buttonStyle}">OK</Button>
+        </StackPanel>
+    </Grid>
+</Window>
