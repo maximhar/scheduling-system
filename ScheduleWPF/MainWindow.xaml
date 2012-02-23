@@ -56,7 +56,7 @@
             <Setter Property="dd:DragDrop.DropHandler" Value="{Binding}"/>
             <Setter Property="ListBox.ItemTemplate" Value="{StaticResource listTemplate}"/>
             <Setter Property="ListBox.HorizontalContentAlignment" Value="Stretch"/>
-            <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
+            <Setter Property="ScrollViewer.CanContentScroll" Value="False"/>
         </Style>
     </Window.Resources>
     <Window.DataContext>
