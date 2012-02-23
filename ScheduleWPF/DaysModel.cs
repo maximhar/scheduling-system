@@ -8,32 +8,40 @@ using System.Windows.Data;
 using GongSolutions.Wpf.DragDrop;
 using System.Windows;
 using System.Collections;
+using ScheduleConcept;
 namespace ScheduleWPF
 {
     class DaysModel:IDropTarget
     {
-        public ObservableCollection<string> Monday { get; private set; }
-        public ObservableCollection<string> Tuesday { get; private set; }
-        public ObservableCollection<string> Wednesday { get; private set; }
-        public ObservableCollection<string> Thursday { get; private set; }
-        public ObservableCollection<string> Friday { get; private set; }
+        public ObservableCollection<CourseClass> Monday { get; private set; }
+        public ObservableCollection<CourseClass> Tuesday { get; private set; }
+        public ObservableCollection<CourseClass> Wednesday { get; private set; }
+        public ObservableCollection<CourseClass> Thursday { get; private set; }
+        public ObservableCollection<CourseClass> Friday { get; private set; }
         public DaysModel()
         {
-            ObservableCollection<string> monday = new ObservableCollection<string> { "BEL", "Maths", "History" };
-            ObservableCollection<string> tuesday = new ObservableCollection<string> { "Maths", "PPS", "TP" };
-            ObservableCollection<string> wednesday = new ObservableCollection<string> { "OOP", "SUBD", "WEBD" };
-            ObservableCollection<string> thursday = new ObservableCollection<string> { "Philo", "AE", "RE" };
-            ObservableCollection<string> friday = new ObservableCollection<string> { "TP", "AE", "OS" };
-            Monday = monday;
-            Tuesday = tuesday;
-            Wednesday = wednesday;
-            Thursday = thursday;
-            Friday = friday;
+            var conf = Configuration.GetInstance();
+            conf.ReadFromXML("info.xml");
+            Monday = new ObservableCollection<CourseClass>(from c in conf.CourseClasses
+                                                           where c.ID < 8
+                                                           select c);
+            Tuesday = new ObservableCollection<CourseClass>(from c in conf.CourseClasses
+                                                            where c.ID > 8 && c.ID <= 16
+                                                            select c);
+            Wednesday = new ObservableCollection<CourseClass>(from c in conf.CourseClasses
+                                                              where c.ID > 16 && c.ID <= 24
+                                                              select c);
+            Thursday = new ObservableCollection<CourseClass>(from c in conf.CourseClasses
+                                                             where c.ID > 24 && c.ID <= 32
+                                                             select c);
+            Friday = new ObservableCollection<CourseClass>(from c in conf.CourseClasses
+                                                           where c.ID > 32 && c.ID <= 40
+                                                           select c);
         }
 
         void IDropTarget.DragOver(DropInfo dropInfo)
         {
-            if (dropInfo.Data is string)
+            if (dropInfo.Data is CourseClass)
             {
                 dropInfo.DropTargetAdorner = DropTargetAdorners.Insert;
                 dropInfo.Effects = DragDropEffects.Move;
@@ -42,11 +50,13 @@ namespace ScheduleWPF
 
         void IDropTarget.Drop(DropInfo dropInfo)
         {
-            var dayon = (string)dropInfo.TargetItem;
-            var daydrop = (string)dropInfo.Data;
-            
-            ((IList)dropInfo.TargetCollection).Insert(dropInfo.InsertIndex, daydrop);
-            ((IList)dropInfo.DragInfo.SourceCollection).Remove(daydrop);
+                var daydrop = (CourseClass)dropInfo.Data;
+                var source = ((IList)dropInfo.DragInfo.SourceCollection);
+                var target = ((IList)dropInfo.TargetCollection);
+                int indexmodifier = 0;
+                if (source.IndexOf(daydrop) < dropInfo.InsertIndex) indexmodifier = -1;
+                source.Remove(daydrop);
+                target.Insert(dropInfo.InsertIndex+indexmodifier, (CourseClass)daydrop);
         }
     }
 }

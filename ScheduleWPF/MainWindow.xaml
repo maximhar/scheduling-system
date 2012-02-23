@@ -5,17 +5,58 @@
         xmlns:local="clr-namespace:ScheduleWPF"
         Title="MainWindow" Height="350" Width="525">
     <Window.Resources>
+        <Style x:Key="ListboxItemStyle" TargetType="{x:Type ListBoxItem}">
+            <Setter Property="Margin" Value="1,2,1,1"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Background" Value="White" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                        <Grid>
+                            <Border Background="{TemplateBinding Background}" />
+                            <Border Background="#FFFFFF" Margin="2,3">
+                            </Border>
+                            <ContentPresenter Margin="5,5" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsMouseOver" Value="True" />
+                                    <Condition Property="IsSelected" Value="False"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Background" Value="Blue" />
+                            </MultiTrigger>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="DarkBlue" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <DataTemplate x:Key="listTemplate">
+            <Border BorderThickness="2" BorderBrush="Gray" CornerRadius="3" Margin="1" HorizontalAlignment="Stretch" Padding="3">
+                <StackPanel>
+                    <Label FontWeight="Bold" FontSize="14" Foreground="DarkGray" Content="{Binding Path=ClassCourse.Name}" Margin="0" Padding="2"></Label>
+                    <Label TextOptions.TextFormattingMode="Display" Content="{Binding Path=ClassProfessor.Name}" Margin="0" Padding="2"></Label>
+                    <Label TextOptions.TextFormattingMode="Display" Content="{Binding Path=StudentGroups[0].Name}" Margin="0" Padding="2"></Label>
+                </StackPanel>
+            </Border>
+        </DataTemplate>
         <Style x:Key="buttonStyle">
             <Setter Property="Button.Margin" Value="5"/>
             <Setter Property="Button.Padding" Value="5"/>
             <Setter Property="Button.MinWidth" Value="60"/>
-            
         </Style>
         <Style x:Key="dayListStyle">
+            <Setter Property="ListBox.ItemContainerStyle" Value="{DynamicResource ListboxItemStyle}" />
             <Setter Property="dd:DragDrop.IsDragSource" Value="True"></Setter>
             <Setter Property="dd:DragDrop.IsDropTarget" Value="True"></Setter>
             <Setter Property="ListBox.Margin" Value="5"></Setter>
             <Setter Property="dd:DragDrop.DropHandler" Value="{Binding}"/>
+            <Setter Property="ListBox.ItemTemplate" Value="{StaticResource listTemplate}"/>
+            <Setter Property="ListBox.HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
         </Style>
     </Window.Resources>
     <Window.DataContext>
@@ -27,7 +68,8 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <UniformGrid Grid.Row="0" Rows="1">
-            <ListBox ItemsSource="{Binding Monday}" Style="{StaticResource dayListStyle}"/>
+            <ListBox ItemsSource="{Binding Monday}" Style="{StaticResource dayListStyle}">
+            </ListBox>
             <ListBox ItemsSource="{Binding Tuesday}" Style="{StaticResource dayListStyle}"></ListBox>
             <ListBox ItemsSource="{Binding Wednesday}" Style="{StaticResource dayListStyle}"></ListBox>
             <ListBox ItemsSource="{Binding Thursday}" Style="{StaticResource dayListStyle}"></ListBox>

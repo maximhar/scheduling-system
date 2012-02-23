@@ -6,7 +6,7 @@ using System.Text;
 namespace ScheduleConcept
 {
     [Serializable]
-    class Course
+    public class Course
     {
         public int ID { get; set; }
         public string Name { get; set; }

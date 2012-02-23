@@ -6,7 +6,7 @@ using System.Text;
 namespace ScheduleConcept
 {
     [Serializable]
-    class CourseClass
+    public class CourseClass
     {
         static int _nextID = 0;
 

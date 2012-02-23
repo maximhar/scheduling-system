@@ -6,7 +6,7 @@ using System.Xml;
 using System.Xml.Linq;
 namespace ScheduleConcept
 {
-    class Configuration
+    public class Configuration
     {
         static Configuration _instance;
         Random _random = new Random(DateTime.Now.Millisecond);

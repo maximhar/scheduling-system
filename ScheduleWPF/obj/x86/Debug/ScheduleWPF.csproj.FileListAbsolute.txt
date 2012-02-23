@@ -13,3 +13,6 @@ C:\Users\maxim4o\Documents\Visual Studio 2010\Projects\ScheduleConcept\ScheduleW
 C:\Users\maxim4o\Documents\Visual Studio 2010\Projects\ScheduleConcept\ScheduleWPF\bin\Debug\GongSolutions.Wpf.DragDrop.dll
 C:\Users\maxim4o\Documents\Visual Studio 2010\Projects\ScheduleConcept\ScheduleWPF\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\maxim4o\Documents\Visual Studio 2010\Projects\ScheduleConcept\ScheduleWPF\obj\x86\Debug\ScheduleWPF_MarkupCompile.lref
+C:\Users\maxim4o\Documents\Visual Studio 2010\Projects\ScheduleConcept\ScheduleWPF\bin\Debug\info.xml
+C:\Users\maxim4o\Documents\Visual Studio 2010\Projects\ScheduleConcept\ScheduleWPF\bin\Debug\ScheduleConcept.exe
+C:\Users\maxim4o\Documents\Visual Studio 2010\Projects\ScheduleConcept\ScheduleWPF\bin\Debug\ScheduleConcept.pdb
