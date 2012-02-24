@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Diagnostics;
-
+using ScheduleShared;
 namespace ScheduleConcept
 {
     delegate void ChromosomeEventHandler(object sender, ChromosomeEventArgs args);

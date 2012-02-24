@@ -58,6 +58,7 @@
             <Setter Property="ScrollViewer.CanContentScroll" Value="False"/>
             <Setter Property="ListBox.BorderBrush" Value="Gray"/>
             <Setter Property="dd:DragDrop.DragAdornerTemplate" Value="{StaticResource listTemplate}"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
         </Style>
     </Window.Resources>
     <Window.DataContext>

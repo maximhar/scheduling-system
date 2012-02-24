@@ -6,10 +6,10 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System.Diagnostics;
 
-namespace ScheduleConcept
+namespace ScheduleShared
 {
     [Serializable]
-    class Schedule
+    public class Schedule
     {
         Random _random = new Random(DateTime.Now.Millisecond);
         List<CourseClass>[] _timeslots;

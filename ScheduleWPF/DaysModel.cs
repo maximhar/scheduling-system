@@ -8,7 +8,7 @@ using System.Windows.Data;
 using GongSolutions.Wpf.DragDrop;
 using System.Windows;
 using System.Collections;
-using ScheduleConcept;
+using ScheduleShared;
 namespace ScheduleWPF
 {
     class DaysModel:IDropTarget
@@ -54,7 +54,7 @@ namespace ScheduleWPF
                 var source = ((IList)dropInfo.DragInfo.SourceCollection);
                 var target = ((IList)dropInfo.TargetCollection);
                 int indexmodifier = 0;
-                if (source.IndexOf(daydrop) < dropInfo.InsertIndex) indexmodifier = -1;
+                if ((source.IndexOf(daydrop) < dropInfo.InsertIndex) && (dropInfo.TargetCollection == dropInfo.DragInfo.SourceCollection)) indexmodifier = -1;
                 source.Remove(daydrop);
                 target.Insert(dropInfo.InsertIndex+indexmodifier, (CourseClass)daydrop);
         }

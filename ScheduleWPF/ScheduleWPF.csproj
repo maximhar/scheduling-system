@@ -103,6 +103,10 @@
       <Project>{A4B152E3-0D8B-459C-AD84-436E4D529FF6}</Project>
       <Name>ScheduleConcept</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ScheduleShared\ScheduleShared.csproj">
+      <Project>{8F135BDB-6E60-4FAB-983C-C7C1651A0B99}</Project>
+      <Name>ScheduleShared</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="info.xml">

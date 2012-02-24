@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ScheduleConcept
+namespace ScheduleShared
 {
-    class Constants
+    public class Constants
     {
         public const int DAYS = 5;
         public const int HOURS_PER_DAY = 16;
