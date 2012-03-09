@@ -15,6 +15,7 @@ namespace ScheduleCommon
         public List<Course> Courses { get; set; }
         public List<StudentGroup> Groups { get; set; }
         public List<IConstraint> Constraints { get; set; }
+        public List<Room> Rooms { get; set; }
         public static Configuration Instance
         {
             get
@@ -32,6 +33,7 @@ namespace ScheduleCommon
             Courses = new List<Course>();
             Groups = new List<StudentGroup>();
             Constraints = new List<IConstraint>();
+            Rooms = new List<Room>();
         }
         
     }

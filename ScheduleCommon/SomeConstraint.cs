@@ -10,7 +10,6 @@ namespace ScheduleCommon
 
         public ConstraintResult Check(Schedule aSchedule)
         {
-
             return new ConstraintResult(false, "Nothing to do here!");
         }
     }
