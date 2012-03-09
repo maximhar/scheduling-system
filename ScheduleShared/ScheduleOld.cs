@@ -9,7 +9,7 @@ using System.Diagnostics;
 namespace ScheduleShared
 {
     [Serializable]
-    public class Schedule
+    public class ScheduleOld
     {
         Random _random = new Random(DateTime.Now.Millisecond);
         List<CourseClass>[] _timeslots;
@@ -61,7 +61,7 @@ namespace ScheduleShared
             _classes = new Dictionary<CourseClass, int>();
             _criteria = new bool[Configuration.GetInstance().Courses.Count * 5];
         }
-        public Schedule(int numberOfCrossoverPoints, int mutationSize, int crossoverProbability, int mutationProbability)
+        public ScheduleOld(int numberOfCrossoverPoints, int mutationSize, int crossoverProbability, int mutationProbability)
         {
             _numberOfCrossoverPoints = numberOfCrossoverPoints;
             _mutationSize = mutationSize;
@@ -71,7 +71,7 @@ namespace ScheduleShared
             InitializeListCapacities();
         }
         
-        public Schedule(Schedule c, bool shallow)
+        public ScheduleOld(ScheduleOld c, bool shallow)
         {
             InitializeListCapacities();
             if (!shallow)
@@ -96,20 +96,20 @@ namespace ScheduleShared
             _mutationProbability = c._mutationProbability;
         }
 
-        public Schedule()
+        public ScheduleOld()
         {
             _timeslots = new List<CourseClass>[0];
             _classes = new Dictionary<CourseClass, int>();
             _criteria = new bool[0];
         }
-        public Schedule Clone(bool shallow)
+        public ScheduleOld Clone(bool shallow)
         {
-            return new Schedule(this, shallow);
+            return new ScheduleOld(this, shallow);
         }
-        public Schedule CreateNewFromPrototype() 
+        public ScheduleOld CreateNewFromPrototype() 
         {
             int size = _timeslots.Length;
-            Schedule newChromosome = new Schedule(this, true);
+            ScheduleOld newChromosome = new ScheduleOld(this, true);
 
             List<CourseClass> classes = Configuration.GetInstance().CourseClasses;
             int roomCount = Configuration.GetInstance().Rooms.Count;
@@ -129,12 +129,12 @@ namespace ScheduleShared
             newChromosome.CalculateFitness();
             return newChromosome;
         }
-        public Schedule CrossOver(Schedule parent2) 
+        public ScheduleOld CrossOver(ScheduleOld parent2) 
         {
             if (_random.Next(100) > _crossoverProbability)
-                return new Schedule(this, false);
+                return new ScheduleOld(this, false);
 
-            Schedule s = new Schedule(this, true);
+            ScheduleOld s = new ScheduleOld(this, true);
             int numberOfClasses = _classes.Count;
             bool[] cp = new bool[numberOfClasses];
             for (int i = _numberOfCrossoverPoints; i > 0; i--)

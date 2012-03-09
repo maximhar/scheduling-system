@@ -9,7 +9,7 @@ namespace ScheduleConcept
     delegate void ChromosomeEventHandler(object sender, ChromosomeEventArgs args);
     class Program
     {
-        static Schedule LastBest;
+        static ScheduleOld LastBest;
         
         static void Main(string[] args)
         {
@@ -48,7 +48,7 @@ namespace ScheduleConcept
             Console.WriteLine("Algorithm state: {0}", (sender as Algorithm).State);
             if ((sender as Algorithm).State != AlgorithmState.RUNNING)
             {
-                Schedule s = LastBest;
+                ScheduleOld s = LastBest;
                 Console.WriteLine("Finished after {0} generations", (sender as Algorithm).CurrentGeneration);
                 DisplaySchedule(s);
                 s.CalculateFitness();
@@ -56,7 +56,7 @@ namespace ScheduleConcept
             }
             
         }
-        static void DisplaySchedule(Schedule s)
+        static void DisplaySchedule(ScheduleOld s)
         {
             int daySize = Constants.HOURS_PER_DAY * Configuration.GetInstance().Rooms.Count;
             var classes = from v in s.Classes

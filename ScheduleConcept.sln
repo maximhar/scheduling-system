@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleWPF", "ScheduleWPF\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleShared", "ScheduleShared\ScheduleShared.csproj", "{8F135BDB-6E60-4FAB-983C-C7C1651A0B99}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleCommon", "ScheduleCommon\ScheduleCommon.csproj", "{16D2AA2D-196F-4B2E-A830-E8F9F1049075}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,16 @@ Global
 		{8F135BDB-6E60-4FAB-983C-C7C1651A0B99}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{8F135BDB-6E60-4FAB-983C-C7C1651A0B99}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{8F135BDB-6E60-4FAB-983C-C7C1651A0B99}.Release|x86.ActiveCfg = Release|Any CPU
+		{16D2AA2D-196F-4B2E-A830-E8F9F1049075}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{16D2AA2D-196F-4B2E-A830-E8F9F1049075}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{16D2AA2D-196F-4B2E-A830-E8F9F1049075}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{16D2AA2D-196F-4B2E-A830-E8F9F1049075}.Debug|x86.ActiveCfg = Debug|x86
+		{16D2AA2D-196F-4B2E-A830-E8F9F1049075}.Debug|x86.Build.0 = Debug|x86
+		{16D2AA2D-196F-4B2E-A830-E8F9F1049075}.Release|Any CPU.ActiveCfg = Release|x86
+		{16D2AA2D-196F-4B2E-A830-E8F9F1049075}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{16D2AA2D-196F-4B2E-A830-E8F9F1049075}.Release|Mixed Platforms.Build.0 = Release|x86
+		{16D2AA2D-196F-4B2E-A830-E8F9F1049075}.Release|x86.ActiveCfg = Release|x86
+		{16D2AA2D-196F-4B2E-A830-E8F9F1049075}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

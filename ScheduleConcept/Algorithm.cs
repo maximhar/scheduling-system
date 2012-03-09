@@ -13,9 +13,9 @@ namespace ScheduleConcept
     }
     class ChromosomeEventArgs : EventArgs
     {
-        private Schedule _chromosome;
-        public Schedule Chromosome { get { return _chromosome; } }
-        public ChromosomeEventArgs(Schedule s)
+        private ScheduleOld _chromosome;
+        public ScheduleOld Chromosome { get { return _chromosome; } }
+        public ChromosomeEventArgs(ScheduleOld s)
             : base()
         {
             _chromosome = s;
@@ -27,7 +27,7 @@ namespace ScheduleConcept
         public event ChromosomeEventHandler NewBestChromosome;
         public event EventHandler StateChanged;
         public event EventHandler EvolutionStateChanged;
-        void OnNewBestChromosome(Schedule s)
+        void OnNewBestChromosome(ScheduleOld s)
         {
             NewBestChromosome(this, new ChromosomeEventArgs(s));
         }
@@ -39,14 +39,14 @@ namespace ScheduleConcept
         {
             EvolutionStateChanged(this, args);
         }
-        List<Schedule> _chromosomes;
+        List<ScheduleOld> _chromosomes;
 
         bool[] _bestFlags;
         int[] _bestChromosomes;
         int _currentBestSize;
         int _replaceByGeneration;
         int _numberOfChromosomes;
-        Schedule _prototype;
+        ScheduleOld _prototype;
         AlgorithmState _state;
         public AlgorithmState State
         {
@@ -62,7 +62,7 @@ namespace ScheduleConcept
         {
             if (_instance == null)
             {
-                Schedule prototype = new Schedule(2, 2, 40, 2);
+                ScheduleOld prototype = new ScheduleOld(2, 2, 40, 2);
                 
                 _instance = new Algorithm(100, 5, 5, prototype);
             }
@@ -86,18 +86,18 @@ namespace ScheduleConcept
                 {
                     break;
                 }
-                Schedule best = GetBestChromosome();
+                ScheduleOld best = GetBestChromosome();
                 if (best.Fitness >= 120)
                 {
                     State = AlgorithmState.CRITERIA_STOPPED;
                     break;
                 }
                 
-                Schedule[] offspring = new Schedule[_replaceByGeneration];
+                ScheduleOld[] offspring = new ScheduleOld[_replaceByGeneration];
                 for (int j = 0; j < _replaceByGeneration; j++)
                 {
-                    Schedule p1 = _chromosomes[_random.Next(_chromosomes.Count)];
-                    Schedule p2 = _chromosomes[_random.Next(_chromosomes.Count)];
+                    ScheduleOld p1 = _chromosomes[_random.Next(_chromosomes.Count)];
+                    ScheduleOld p2 = _chromosomes[_random.Next(_chromosomes.Count)];
                     offspring[j] = p1.CrossOver(p2);
                     offspring[j].Mutation();
                     offspring[j].Repair();
@@ -136,7 +136,7 @@ namespace ScheduleConcept
                 return _currentGeneration;
             }
         }
-        public Algorithm(int numberOfChromosomes, int replaceByGeneration, int trackBest, Schedule prototype) 
+        public Algorithm(int numberOfChromosomes, int replaceByGeneration, int trackBest, ScheduleOld prototype) 
         {
             _replaceByGeneration = replaceByGeneration; 
             _prototype = prototype;
@@ -150,11 +150,11 @@ namespace ScheduleConcept
             else if (_replaceByGeneration > numberOfChromosomes - trackBest)
                 _replaceByGeneration = numberOfChromosomes - trackBest;
             _numberOfChromosomes = numberOfChromosomes;
-            _chromosomes = new List<Schedule>(numberOfChromosomes);
+            _chromosomes = new List<ScheduleOld>(numberOfChromosomes);
             _bestFlags = new bool[numberOfChromosomes];
             _bestChromosomes = new int[trackBest];
         }
-        public Schedule GetBestChromosome()
+        public ScheduleOld GetBestChromosome()
         {
             return _chromosomes[_bestChromosomes[0]];
         }
