@@ -44,6 +44,7 @@
     <Compile Include="IConstraint.cs" />
     <Compile Include="Professor.cs" />
     <Compile Include="Schedule.cs" />
+    <Compile Include="SomeConstraint.cs" />
     <Compile Include="StudentGroup.cs" />
     <Compile Include="TimeOverlapConstraint.cs" />
   </ItemGroup>

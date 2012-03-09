@@ -5,14 +5,16 @@ using System.Text;
 
 namespace ScheduleCommon
 {
+    /// <summary>
+    /// Contains common data that applies to all schedules.
+    /// </summary>
     class Configuration
     {
         private static Configuration instance;
-        private Configuration() { }
-        public List<Professor> Professors = new List<Professor>();
-        public List<Course> Courses = new List<Course>();
-        public List<StudentGroup> Groups = new List<StudentGroup>();
-        public List<IConstraint> Constraints = new List<IConstraint>();
+        public List<Professor> Professors { get; set; }
+        public List<Course> Courses { get; set; }
+        public List<StudentGroup> Groups { get; set; }
+        public List<IConstraint> Constraints { get; set; }
         public static Configuration Instance
         {
             get
@@ -24,7 +26,13 @@ namespace ScheduleCommon
                 return instance;
             }
         }
-    
+        private Configuration() 
+        {
+            Professors = new List<Professor>();
+            Courses = new List<Course>();
+            Groups = new List<StudentGroup>();
+            Constraints = new List<IConstraint>();
+        }
         
     }
 }

@@ -5,6 +5,9 @@ using System.Text;
 
 namespace ScheduleCommon
 {
+    /// <summary>
+    /// A schedule of all classes through all days in a single school.
+    /// </summary>
     public class Schedule
     {
         Dictionary<StudentGroup, List<Class>>[] days = new Dictionary<StudentGroup, List<Class>>[7];
@@ -17,6 +20,11 @@ namespace ScheduleCommon
                 startTimes[i] = new Dictionary<StudentGroup, TimeSpan>();
             }
         }
+        /// <summary>
+        /// A dictionary of StudentGroups and corresponding List of Classes
+        /// </summary>
+        /// <param name="index">The day of the week.</param>
+        /// <returns></returns>
         public Dictionary<StudentGroup, List<Class>> this[int index]
         {
             get
