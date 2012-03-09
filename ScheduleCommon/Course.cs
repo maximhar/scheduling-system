@@ -15,5 +15,11 @@ namespace ScheduleCommon
         public string Name { get; set; }
         public Professor Professor { get; set; }
         public CourseType CourseType { get; set; }
+        public Course(string aName, Professor aProf, CourseType aType)
+        {
+            Name = aName;
+            Professor = aProf;
+            CourseType = aType;
+        }
     }
 }

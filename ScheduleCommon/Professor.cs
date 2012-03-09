@@ -8,5 +8,9 @@ namespace ScheduleCommon
     public class Professor
     {
         public string Name { get; set; }
+        public Professor(string aName)
+        {
+            Name = aName;
+        }
     }
 }

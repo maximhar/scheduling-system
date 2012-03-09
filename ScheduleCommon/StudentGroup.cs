@@ -8,5 +8,9 @@ namespace ScheduleCommon
     public class StudentGroup
     {
         public string Name { get; set; }
+        public StudentGroup(string aName)
+        {
+            Name = aName;
+        }
     }
 }
