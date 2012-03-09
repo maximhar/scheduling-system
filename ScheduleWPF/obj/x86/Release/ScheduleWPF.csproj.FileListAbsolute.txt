@@ -16,3 +16,5 @@ C:\Users\maxim4o\Documents\Visual Studio 2010\Projects\ScheduleConcept\ScheduleW
 C:\Users\maxim4o\Documents\Visual Studio 2010\Projects\ScheduleConcept\ScheduleWPF\obj\x86\Release\ScheduleWPF.csproj.GenerateResource.Cache
 C:\Users\maxim4o\Documents\Visual Studio 2010\Projects\ScheduleConcept\ScheduleWPF\obj\x86\Release\ScheduleWPF.exe
 C:\Users\maxim4o\Documents\Visual Studio 2010\Projects\ScheduleConcept\ScheduleWPF\obj\x86\Release\ScheduleWPF.pdb
+C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleWPF\bin\Release\ScheduleShared.dll
+C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleWPF\bin\Release\ScheduleShared.pdb

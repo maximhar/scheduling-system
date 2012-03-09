@@ -17,7 +17,7 @@ namespace ScheduleCommon
                 startTimes[i] = new Dictionary<StudentGroup, TimeSpan>();
             }
         }
-        public Dictionary<StudentGroup, Dictionary<int, Class>> this[int index]
+        public Dictionary<StudentGroup, List<Class>> this[int index]
         {
             get
             {

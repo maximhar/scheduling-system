@@ -4,3 +4,5 @@ C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleC
 C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleConcept\obj\x86\Release\ScheduleConcept.pdb
 C:\Users\maxim4o\Documents\Visual Studio 2010\Projects\ScheduleConcept\ScheduleConcept\bin\Release\info.xml
 C:\Users\maxim4o\Documents\Visual Studio 2010\Projects\ScheduleConcept\ScheduleConcept\obj\x86\Release\ScheduleConcept.csprojResolveAssemblyReference.cache
+C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleConcept\bin\Release\ScheduleShared.dll
+C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleConcept\bin\Release\ScheduleShared.pdb

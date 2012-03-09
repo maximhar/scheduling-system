@@ -1,0 +1,5 @@
+C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleShared\bin\Release\info.xml
+C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleShared\bin\Release\ScheduleShared.dll
+C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleShared\bin\Release\ScheduleShared.pdb
+C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleShared\obj\Release\ScheduleShared.dll
+C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleShared\obj\Release\ScheduleShared.pdb

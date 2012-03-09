@@ -6,7 +6,7 @@
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{16D2AA2D-196F-4B2E-A830-E8F9F1049075}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ScheduleCommon</RootNamespace>
     <AssemblyName>ScheduleCommon</AssemblyName>
@@ -33,12 +33,19 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Compile Include="Class.cs" />
+    <Compile Include="Configuration.cs" />
+    <Compile Include="ConstraintResult.cs" />
     <Compile Include="Course.cs" />
+    <Compile Include="IConstraint.cs" />
     <Compile Include="Professor.cs" />
     <Compile Include="Schedule.cs" />
     <Compile Include="StudentGroup.cs" />
+    <Compile Include="TimeOverlapConstraint.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
