@@ -18,5 +18,9 @@ namespace ScheduleCommon
             Length = aLength;
             Room = aRoom;
         }
+        public override string ToString()
+        {
+            return string.Format("{0}, group {1}, length {2}, room {3}", Course, Group, Length, Room);
+        }
     }
 }

@@ -15,5 +15,9 @@ namespace ScheduleCommon
             Name = aName;
             Type = aType;
         }
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }
