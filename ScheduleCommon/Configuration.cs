@@ -8,7 +8,7 @@ namespace ScheduleCommon
     /// <summary>
     /// Contains common data that applies to all schedules.
     /// </summary>
-    class Configuration
+    public class Configuration
     {
         private static Configuration instance;
         public List<Professor> Professors { get; set; }
@@ -35,6 +35,13 @@ namespace ScheduleCommon
             Constraints = new List<IConstraint>();
             Rooms = new List<Room>();
         }
-        
+        public void Clear()
+        {
+            Professors.Clear();
+            Courses.Clear();
+            Groups.Clear();
+            Constraints.Clear();
+            Rooms.Clear();
+        }
     }
 }
