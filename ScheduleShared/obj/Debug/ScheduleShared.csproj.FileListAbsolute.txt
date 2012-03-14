@@ -4,3 +4,9 @@ C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleS
 C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleShared\obj\Debug\ScheduleShared.csprojResolveAssemblyReference.cache
 C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleShared\obj\Debug\ScheduleShared.dll
 C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleShared\obj\Debug\ScheduleShared.pdb
+C:\GIT\TP\ScheduleShared\bin\Debug\info.xml
+C:\GIT\TP\ScheduleShared\bin\Debug\ScheduleShared.dll
+C:\GIT\TP\ScheduleShared\bin\Debug\ScheduleShared.pdb
+C:\GIT\TP\ScheduleShared\obj\Debug\ResolveAssemblyReference.cache
+C:\GIT\TP\ScheduleShared\obj\Debug\ScheduleShared.dll
+C:\GIT\TP\ScheduleShared\obj\Debug\ScheduleShared.pdb
