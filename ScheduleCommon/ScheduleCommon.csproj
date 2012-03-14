@@ -40,6 +40,9 @@
     <Compile Include="Class.cs" />
     <Compile Include="Configuration.cs" />
     <Compile Include="ConstraintResult.cs" />
+    <Compile Include="ProfessorDayAndTimeConstraint.cs" />
+    <Compile Include="ProfessorDayConstraint.cs" />
+    <Compile Include="ProfessorTimeConstraint.cs" />
     <Compile Include="ProfessorTimeOverlapConstraint.cs" />
     <Compile Include="Course.cs" />
     <Compile Include="IConstraint.cs" />
