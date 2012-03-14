@@ -29,13 +29,14 @@ namespace ScheduleCommon
                             var group2 = Configuration.Instance.Groups[groupN2];
                             var classs = sched[day][group][classsN];
                             var classs2 = sched[day][group2][classsN];
-
+                            
                             if (classs.Room == classs2.Room)
                             {
-
                                 var start1 = sched.GetStartTimeForClass(day, group, classs);
                                 var start2 = sched.GetStartTimeForClass(day, group2, classs2);
-                                if (start1 + classs.Length >= start2 && start2 <= start1 + classs.Length && start1+classs.Length<=start2 + classs2.Length)
+                                var end1 = start1 + classs.Length;
+                                var end2 = start2 + classs2.Length;
+                                if (end1 >= start2 && start2 <= end1 && end1 <= end2)
                                 {
                                     pass = false;
                                     string error = string.Format("Room conflict: room {0} conflicts between group {1} and group {2} in day {3}",
