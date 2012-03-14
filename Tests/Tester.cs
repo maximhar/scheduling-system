@@ -250,12 +250,13 @@ namespace Tests
             sched[0][g11g].Add(tp11g);//11G class has TP from 8AM to 9:20AM in room 24
             //result should be false as professors conflict
             s.Start();
-            IConstraint c = new RoomTimeOverlapConstraint();
-            bool result = c.Check(sched).ConstraintFulfilled;
+            IConstraint c = new ProfessorTimeOverlapConstraint();
+            var result = c.Check(sched);
             s.Stop();
 
-            string pass = result == false ? "succeeded" : "failed";
+            string pass = result.ConstraintFulfilled == false ? "succeeded" : "failed";
             Console.WriteLine("TestProfessorTimeOverlap() " + pass);
+            Console.WriteLine(result.ErrorMessage);
             Console.WriteLine("{0} ms.", s.ElapsedMilliseconds);
         }
         private void TestProfessorTimeOverlap2()
@@ -309,12 +310,13 @@ namespace Tests
             sched[0][g11g].Add(tp11g);//11G class has TP from 9:20AM to 10:40AM in room 24
             //result should be true as professors do not conflict
             s.Start();
-            IConstraint c = new RoomTimeOverlapConstraint();
-            bool result = c.Check(sched).ConstraintFulfilled;
+            IConstraint c = new ProfessorTimeOverlapConstraint();
+            var result = c.Check(sched);
             s.Stop();
 
-            string pass = result == true ? "succeeded" : "failed";
+            string pass = result.ConstraintFulfilled == true ? "succeeded" : "failed";
             Console.WriteLine("TestProfessorTimeOverlap2() " + pass);
+            Console.WriteLine(result.ErrorMessage);
             Console.WriteLine("{0} ms.", s.ElapsedMilliseconds);
         }
     }
