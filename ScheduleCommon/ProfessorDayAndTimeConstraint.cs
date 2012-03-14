@@ -13,6 +13,7 @@ namespace ScheduleCommon
 
         public ConstraintResult Check(Schedule sched)
         {
+
             return new ConstraintResult(false, "ProfessorDayAndTimeConstraint not implemented yet!");
         }
     }
