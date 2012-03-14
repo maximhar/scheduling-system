@@ -76,11 +76,12 @@ namespace Tests
             //result should be false as rooms conflict
             s.Start();
             IConstraint c = new RoomTimeOverlapConstraint();
-            bool result = c.Check(sched).ConstraintFulfilled;
+            var result = c.Check(sched);
             s.Stop();
 
-            string pass = result == false ? "succeeded" : "failed";
+            string pass = result.ConstraintFulfilled == false ? "succeeded" : "failed";
             Console.WriteLine("TestRoomTimeOverlap() " + pass);
+            Console.WriteLine(result.ErrorMessage);
             Console.WriteLine("{0} ms.", s.ElapsedMilliseconds);
         }
         private void TestRoomTimeOverlap2()
@@ -133,11 +134,12 @@ namespace Tests
             //result should be true, rooms do not conflict
             s.Start();
             IConstraint c = new RoomTimeOverlapConstraint();
-            bool result = c.Check(sched).ConstraintFulfilled;
+            var result = c.Check(sched);
             s.Stop();
 
-            string pass = result == true ? "succeeded" : "failed";
+            string pass = result.ConstraintFulfilled == true ? "succeeded" : "failed";
             Console.WriteLine("TestRoomTimeOverlap2() " + pass);
+            Console.WriteLine(result.ErrorMessage);
             Console.WriteLine("{0} ms.", s.ElapsedMilliseconds);
         }
         private void TestRoomTimeOverlap3()
@@ -190,11 +192,12 @@ namespace Tests
             //result should be true, rooms do not conflict
             s.Start();
             IConstraint c = new RoomTimeOverlapConstraint();
-            bool result = c.Check(sched).ConstraintFulfilled;
+            var result = c.Check(sched);
             s.Stop();
 
-            string pass = result == true ? "succeeded" : "failed";
+            string pass = result.ConstraintFulfilled == true ? "succeeded" : "failed";
             Console.WriteLine("TestRoomTimeOverlap3() " + pass);
+            Console.WriteLine(result.ErrorMessage);
             Console.WriteLine("{0} ms.", s.ElapsedMilliseconds);
         }
 

@@ -12,12 +12,18 @@ namespace ScheduleCommon
         }
         public ConstraintResult Check(Schedule sched)
         {
+            bool pass = true;
             StringBuilder errorContainer = new StringBuilder();
-            for (int day = 0; day < 6; day++){ 
+            for (int day = 0; day < 6; day++){
+                if (sched[day].Count == 0)
+                {
+                    continue;
+                }
                 for (int groupN=0; groupN < Configuration.Instance.Groups.Count-1; groupN++){
                     var group = Configuration.Instance.Groups[groupN];
+                    
                     for (int classsN = 0; classsN < sched[day][group].Count; classsN++){
-                        int groupN2 = groupN;
+                        int groupN2 = groupN+1;
                         while (groupN2 < Configuration.Instance.Groups.Count)
                         {
                             var group2 = Configuration.Instance.Groups[groupN2];
@@ -31,21 +37,19 @@ namespace ScheduleCommon
                                 var start2 = sched.GetStartTimeForClass(day, group2, classs2);
                                 if (start1 + classs.Length >= start2 && start2 <= start1 + classs.Length && start1+classs.Length<=start2 + classs2.Length)
                                 {
+                                    pass = false;
                                     string error = string.Format("Room conflict: room {0} conflicts between group {1} and group {2} in day {3}",
                                         classs.Room, group, group2, day);
                                     errorContainer.AppendLine(error);
                                 }
                             }
+                            groupN2++;
                         }
-
 
                     }
                 }
             }
-
-
-
-                return new ConstraintResult(false, "Constraint not implemented yet.");
+                return new ConstraintResult(pass, errorContainer.ToString());
         }
     }
 }
