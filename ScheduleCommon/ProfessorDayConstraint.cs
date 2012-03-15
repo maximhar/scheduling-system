@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ScheduleCommon
 {
-    class ProfessorDayConstraint : IConstraint
+    public class ProfessorDayConstraint : IConstraint
     {
         private Professor prof;
         private List<int> off;
@@ -22,15 +22,19 @@ namespace ScheduleCommon
 
             foreach (int day in off)
             {
+                if (sched[day].Count == 0)
+                {
+                    continue;
+                }
                 foreach(var group in Configuration.Instance.Groups)
                 {
-                    for (int classs = 0; classs < sched[day][group].Count; classs++ )
+                    foreach (var classs in sched[day][group])
                     {
-                        if (sched[day][group][classs].Course.Professor == prof)
+                        if (classs.Course.Professor == prof)
                         {
                             pass = false;
                             string error = string.Format("Professor Days Off conflict: professor {0} conflicts in day {1}",
-                                sched[day][group][classs].Course.Professor, day);
+                                classs.Course.Professor, day);
                             errorContainer.AppendLine(error);
                         }
                     }

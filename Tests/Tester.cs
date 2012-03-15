@@ -24,6 +24,8 @@ namespace Tests
 
             TestProfessorTimeOverlap();
             TestProfessorTimeOverlap2();
+
+            TestProfessorDayOverlap();
         }
 
         private void TestRoomTimeOverlap()
@@ -259,6 +261,7 @@ namespace Tests
             Console.WriteLine(result.ErrorMessage);
             Console.WriteLine("{0} ms.", s.ElapsedMilliseconds);
         }
+
         private void TestProfessorTimeOverlap2()
         {
             config.Clear();
@@ -316,6 +319,66 @@ namespace Tests
 
             string pass = result.ConstraintFulfilled == true ? "succeeded" : "failed";
             Console.WriteLine("TestProfessorTimeOverlap2() " + pass);
+            Console.WriteLine(result.ErrorMessage);
+            Console.WriteLine("{0} ms.", s.ElapsedMilliseconds);
+        }
+
+        private void TestProfessorDayOverlap()
+        {
+            config.Clear();
+
+            Stopwatch s = new Stopwatch();
+
+            var mitov = new Professor("Kiril Mitov");
+            var abrama = new Professor("Janet Abramowitch");
+
+            var r12 = new Room("12", CourseType.NormalCourse);
+            var r24 = new Room("24", CourseType.NormalCourse);
+            var r32 = new Room("32", CourseType.ComputerCourse);
+
+            var g11a = new StudentGroup("11A");
+            var g11g = new StudentGroup("11G");
+
+            var tp = new Course("TP", mitov, CourseType.ComputerCourse);
+            var maths = new Course("Maths", abrama, CourseType.NormalCourse);
+
+            var tp11a = new Class(g11a, tp, new TimeSpan(1, 20, 0), r32);
+            var tp11g = new Class(g11g, tp, new TimeSpan(1, 20, 0), r24);
+
+            config.Rooms.Add(r12);
+            config.Rooms.Add(r24);
+            config.Rooms.Add(r32);
+
+            config.Groups.Add(g11a);
+            config.Groups.Add(g11g);
+
+
+            config.Professors.Add(mitov);
+            config.Professors.Add(abrama);
+
+            config.Courses.Add(tp);
+            config.Courses.Add(maths);
+
+            Schedule sched = new Schedule();
+            for (int i = 0; i < 7; i++)
+            {
+                sched.SetStartTime(i, g11a, new TimeSpan(8, 0, 0));
+                sched.SetStartTime(i, g11g, new TimeSpan(9, 20, 0));
+            }
+            sched[0][g11a] = new List<Class>();
+            sched[0][g11g] = new List<Class>();
+
+            sched[0][g11a].Add(tp11a);//11A class has TP from 8AM to 9:20AM in room 32 on monday
+            sched[0][g11g].Add(tp11g);//11G class has TP from 9:20AM to 10:40AM in room 24 on monday
+            //result should be false as professor day conflict
+            List<int> daysOff = new List<int> {0,2,5};
+            s.Start();
+            IConstraint c = new ProfessorDayConstraint(mitov, daysOff);
+            var result = c.Check(sched);
+            s.Stop();
+
+            string pass = result.ConstraintFulfilled == false ? "succeeded" : "failed";
+            Console.WriteLine("TestProfessorDayConstraint() " + pass);
             Console.WriteLine(result.ErrorMessage);
             Console.WriteLine("{0} ms.", s.ElapsedMilliseconds);
         }
