@@ -8,12 +8,12 @@ namespace ScheduleCommon
     public class Professor
     {
         public string Name { get; set; }
-        private bool empty;
+        //private bool empty;
         public static readonly Professor Empty = new Professor();
         private Professor()
         {
             Name = string.Empty;
-            empty = true;
+           // this.empty = true;
         }
         public Professor(string aName)
         {

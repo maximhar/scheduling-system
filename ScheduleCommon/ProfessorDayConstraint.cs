@@ -34,7 +34,7 @@ namespace ScheduleCommon
                         {
                             pass = false;
                             string error = string.Format("Professor Days Off conflict: professor {0} conflicts in day {1}",
-                                classs.Course.Professor, day);
+                                prof, day);
                             errorContainer.AppendLine(error);
                         }
                     }
