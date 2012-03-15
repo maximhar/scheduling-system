@@ -7,8 +7,8 @@ namespace ScheduleCommon
 {
     public class ProfessorDayAndTimeConstraint : IConstraint
     {
-        public List<TimePrevent> prevent;
-        public ProfessorDayAndTimeConstraint(List<TimePrevent> aPrevent)
+        public List<Prevent> prevent;
+        public ProfessorDayAndTimeConstraint(List<Prevent> aPrevent)
         {
             prevent = aPrevent;
         }

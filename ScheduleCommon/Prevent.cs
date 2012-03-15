@@ -5,14 +5,14 @@ using System.Text;
 
 namespace ScheduleCommon
 {
-    public class TimePrevent
+    public class Prevent
     {
         public Professor prof { get; set; }
         public int day { get; set; }
         public TimeSpan start { get; set; }
         public TimeSpan end { get; set; }
 
-        public TimePrevent(Professor aProf, int aDay, TimeSpan aStart, TimeSpan aEnd)
+        public Prevent(Professor aProf, int aDay, TimeSpan aStart, TimeSpan aEnd)
         {
             prof = aProf;
             day = aDay;

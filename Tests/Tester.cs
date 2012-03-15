@@ -496,8 +496,8 @@ namespace Tests
             //result should be false as professor day conflict
             TimeSpan start = new TimeSpan(9, 30, 0);
             TimeSpan end = new TimeSpan(16, 20, 0);
-            List<TimePrevent> prevents = new List<TimePrevent>();
-            TimePrevent aPrevent = new TimePrevent(mitov, 0, start, end);
+            List<Prevent> prevents = new List<Prevent>();
+            Prevent aPrevent = new Prevent(mitov, 0, start, end);
             prevents.Add(aPrevent);
             s.Start();
             IConstraint c = new ProfessorDayAndTimeConstraint(prevents);
