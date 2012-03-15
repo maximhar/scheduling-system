@@ -18,3 +18,23 @@ C:\Users\maxim4o\Documents\Visual Studio 2010\Projects\ScheduleConcept\ScheduleW
 C:\Users\maxim4o\Documents\Visual Studio 2010\Projects\ScheduleConcept\ScheduleWPF\bin\Debug\ScheduleConcept.pdb
 C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleWPF\bin\Debug\ScheduleShared.dll
 C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleWPF\bin\Debug\ScheduleShared.pdb
+C:\GIT\TP\ScheduleWPF\bin\Debug\info.xml
+C:\GIT\TP\ScheduleWPF\bin\Debug\ScheduleWPF.exe
+C:\GIT\TP\ScheduleWPF\bin\Debug\ScheduleWPF.pdb
+C:\GIT\TP\ScheduleWPF\bin\Debug\ScheduleConcept.exe
+C:\GIT\TP\ScheduleWPF\bin\Debug\ScheduleShared.dll
+C:\GIT\TP\ScheduleWPF\bin\Debug\ScheduleConcept.pdb
+C:\GIT\TP\ScheduleWPF\bin\Debug\ScheduleShared.pdb
+C:\GIT\TP\ScheduleWPF\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\GIT\TP\ScheduleWPF\obj\x86\Debug\MainWindow.g.cs
+C:\GIT\TP\ScheduleWPF\obj\x86\Debug\App.g.cs
+C:\GIT\TP\ScheduleWPF\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+C:\GIT\TP\ScheduleWPF\obj\x86\Debug\ScheduleWPF_MarkupCompile.cache
+C:\GIT\TP\ScheduleWPF\obj\x86\Debug\ScheduleWPF_MarkupCompile.lref
+C:\GIT\TP\ScheduleWPF\obj\x86\Debug\MainWindow.baml
+C:\GIT\TP\ScheduleWPF\obj\x86\Debug\ScheduleWPF.g.resources
+C:\GIT\TP\ScheduleWPF\obj\x86\Debug\ScheduleWPF.Properties.Resources.resources
+C:\GIT\TP\ScheduleWPF\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\GIT\TP\ScheduleWPF\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\GIT\TP\ScheduleWPF\obj\x86\Debug\ScheduleWPF.exe
+C:\GIT\TP\ScheduleWPF\obj\x86\Debug\ScheduleWPF.pdb

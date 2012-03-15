@@ -2,3 +2,8 @@ C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleC
 C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleCommon\bin\Debug\ScheduleCommon.pdb
 C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleCommon\obj\x86\Debug\ScheduleCommon.dll
 C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleCommon\obj\x86\Debug\ScheduleCommon.pdb
+C:\GIT\TP\ScheduleCommon\bin\Debug\ScheduleCommon.dll
+C:\GIT\TP\ScheduleCommon\bin\Debug\ScheduleCommon.pdb
+C:\GIT\TP\ScheduleCommon\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\GIT\TP\ScheduleCommon\obj\x86\Debug\ScheduleCommon.dll
+C:\GIT\TP\ScheduleCommon\obj\x86\Debug\ScheduleCommon.pdb
