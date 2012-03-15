@@ -9,10 +9,9 @@ namespace ScheduleCommon
     {
         private Professor prof;
         private List<int> off;
-        public ProfessorDayAndTimeConstraint(Professor professor, List<int> daysOff)
+        public ProfessorDayAndTimeConstraint(Professor professor, struct constraint)
         {
-            this.prof = professor;
-            this.off = daysOff;
+            
         }
 
         public ConstraintResult Check(Schedule sched)

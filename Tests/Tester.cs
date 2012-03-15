@@ -367,10 +367,10 @@ namespace Tests
                 sched.SetStartTime(i, g11g, new TimeSpan(9, 20, 0));
             }
             sched[0][g11a] = new List<Class>();
-            sched[0][g11g] = new List<Class>();
+            sched[2][g11g] = new List<Class>();
 
             sched[0][g11a].Add(tp11a);//11A class has TP from 8AM to 9:20AM in room 32 on monday
-            sched[0][g11g].Add(tp11g);//11G class has TP from 9:20AM to 10:40AM in room 24 on monday
+            sched[2][g11g].Add(tp11g);//11G class has TP from 9:20AM to 10:40AM in room 24 on monday
             //result should be false as professor day conflict
             List<int> daysOff = new List<int> {0,2,5};
             s.Start();
