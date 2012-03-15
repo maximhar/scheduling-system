@@ -38,7 +38,7 @@ namespace ScheduleCommon
                             if ((classStart >= prev.start && classStart <= prev.end) || (classEnd >= prev.start && classEnd <= prev.end))
                             {
                                 pass = false;
-                                string error = string.Format("Professor Day&Time conflict: professor {0} conflicts on {3} between {1}-{2}",
+                                string error = string.Format("Professor Day&Time conflict: professor {0} conflicts on day {3} between {1}-{2}",
                                     prev.prof, classStart, classEnd, prev.day);
                                 errorContainer.AppendLine(error);
                             }
