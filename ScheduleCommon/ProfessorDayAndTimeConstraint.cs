@@ -17,6 +17,7 @@ namespace ScheduleCommon
 
         public ConstraintResult Check(Schedule sched)
         {
+
             bool pass = true;
             StringBuilder errorContainer = new StringBuilder();
 
