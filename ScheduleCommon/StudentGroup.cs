@@ -16,5 +16,14 @@ namespace ScheduleCommon
         {
             return Name;
         }
+        public override int GetHashCode()
+        {
+            return Name.GetHashCode();
+        }
+        public override bool Equals(object obj)
+        {
+            if (obj == null) return false;
+            return ((StudentGroup)obj).Name == Name;
+        }
     }
 }

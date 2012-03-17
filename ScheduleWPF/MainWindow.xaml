@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:dd="clr-namespace:GongSolutions.Wpf.DragDrop;assembly=GongSolutions.Wpf.DragDrop"
         xmlns:local="clr-namespace:ScheduleWPF"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="525" Loaded="Window_Loaded">
     <Window.Resources>
         <Style x:Key="ListboxItemStyle" TargetType="{x:Type ListBoxItem}">
             <Setter Property="Margin" Value="1,2,1,1"/>
@@ -37,10 +37,15 @@
         </Style>
         <DataTemplate x:Key="listTemplate">
                 <StackPanel>
-                    <Label FontWeight="Bold" FontSize="14" Foreground="Black" Content="{Binding Path=ClassCourse.Name}" Margin="0" Padding="2"></Label>
-                    <Label TextOptions.TextFormattingMode="Display" Content="{Binding Path=ClassProfessor.Name}" Margin="0" Padding="2"></Label>
-                    <Label TextOptions.TextFormattingMode="Display" Content="{Binding Path=StudentGroups[0].Name}" Margin="0" Padding="2"></Label>
+                    <Label FontWeight="Bold" FontSize="14" Foreground="Black" Content="{Binding Path=Course.Name}" Margin="0" Padding="2"></Label>
+                    <Label TextOptions.TextFormattingMode="Display" Content="{Binding Path=Course.Professor.Name}" Margin="0" Padding="2"></Label>
+                    <Label TextOptions.TextFormattingMode="Display" Content="{Binding Path=Group.Name}" Margin="0" Padding="2"></Label>
                 </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="comboGroupsTemplate">
+            <StackPanel>
+                <Label FontWeight="Bold" FontSize="14" Foreground="Black" Content="{Binding Path=Name}" Margin="0" Padding="2"></Label>
+            </StackPanel>
         </DataTemplate>
         <Style x:Key="buttonStyle">
             <Setter Property="Button.Margin" Value="5"/>
@@ -60,26 +65,33 @@
             <Setter Property="dd:DragDrop.DragAdornerTemplate" Value="{StaticResource listTemplate}"/>
             <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
         </Style>
+        <Style x:Key="comboGroupsStyle">
+            <Setter Property="ComboBox.ItemTemplate" Value="{StaticResource comboGroupsTemplate}"/>
+        </Style>
     </Window.Resources>
     <Window.DataContext>
         <local:DaysModel/>
     </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
             <RowDefinition/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <UniformGrid Grid.Row="0" Rows="1">
-            <ListBox ItemsSource="{Binding Monday}" Style="{StaticResource dayListStyle}">
+        <UniformGrid Grid.Row="1" Rows="1">
+            <ListBox Name="listMonday"  Style="{StaticResource dayListStyle}">
             </ListBox>
-            <ListBox ItemsSource="{Binding Tuesday}" Style="{StaticResource dayListStyle}"></ListBox>
-            <ListBox ItemsSource="{Binding Wednesday}" Style="{StaticResource dayListStyle}"></ListBox>
-            <ListBox ItemsSource="{Binding Thursday}" Style="{StaticResource dayListStyle}"></ListBox>
-            <ListBox ItemsSource="{Binding Friday}" Style="{StaticResource dayListStyle}"></ListBox>
+            <ListBox Name="listTuesday" ItemsSource="{Binding Tuesday}" Style="{StaticResource dayListStyle}"></ListBox>
+            <ListBox Name="listWednesday" ItemsSource="{Binding Wednesday}" Style="{StaticResource dayListStyle}"></ListBox>
+            <ListBox Name="listThursday" ItemsSource="{Binding Thursday}" Style="{StaticResource dayListStyle}"></ListBox>
+            <ListBox Name="listFriday" ItemsSource="{Binding Friday}" Style="{StaticResource dayListStyle}"></ListBox>
         </UniformGrid>
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button Style="{StaticResource buttonStyle}">Close</Button>
             <Button Style="{StaticResource buttonStyle}">OK</Button>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <ComboBox Name="comboClass" Width="100" SelectionChanged="comboClass_SelectionChanged" Style="{StaticResource comboGroupsStyle}"></ComboBox>
         </StackPanel>
     </Grid>
 </Window>

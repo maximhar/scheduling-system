@@ -99,19 +99,15 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ScheduleConcept\ScheduleConcept.csproj">
-      <Project>{A4B152E3-0D8B-459C-AD84-436E4D529FF6}</Project>
-      <Name>ScheduleConcept</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ScheduleShared\ScheduleShared.csproj">
-      <Project>{8F135BDB-6E60-4FAB-983C-C7C1651A0B99}</Project>
-      <Name>ScheduleShared</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="info.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ScheduleCommon\ScheduleCommon.csproj">
+      <Project>{16D2AA2D-196F-4B2E-A830-E8F9F1049075}</Project>
+      <Name>ScheduleCommon</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
