@@ -7,10 +7,10 @@ namespace ScheduleCommon
 {
     public class ProfessorDayAndTimeConstraint : IConstraint
     {
-        public List<Prevent> prevent;
-        public ProfessorDayAndTimeConstraint(List<Prevent> aPrevent)
+        private List<TimeDayRequirement> requirements;
+        public ProfessorDayAndTimeConstraint(List<TimeDayRequirement> aRequirements)
         {
-            prevent = aPrevent;
+            requirements = aRequirements;
         }
 
         public ConstraintResult Check(Schedule sched)
@@ -19,9 +19,9 @@ namespace ScheduleCommon
             bool pass = true;
             StringBuilder errorContainer = new StringBuilder();
             
-            foreach (var prev in prevent)
+            foreach (var req in requirements)
             {
-                int day = prev.day;
+                int day = req.Day;
 
                 if (sched[day].Count == 0)
                 {
@@ -31,15 +31,15 @@ namespace ScheduleCommon
                 {
                     foreach (var classs in sched[day][group])
                     {
-                        if (classs.Course.Professor == prev.prof)
+                        if (classs.Course.Professor == req.Professor)
                         {
                             TimeSpan classStart = sched.GetStartTimeForClass(day, group, classs);
                             TimeSpan classEnd = classStart + classs.Length;
-                            if ((classStart >= prev.start && classStart <= prev.end) || (classEnd >= prev.start && classEnd <= prev.end))
+                            if ((classStart >= req.Start && classStart <= req.End) || (classEnd >= req.Start && classEnd <= req.End))
                             {
                                 pass = false;
                                 string error = string.Format("Professor Day&Time conflict: professor {0} conflicts on day {3} between {1}-{2}",
-                                    prev.prof, classStart, classEnd, prev.day);
+                                    req.Professor, classStart, classEnd, req.Day);
                                 errorContainer.AppendLine(error);
                             }
                         }

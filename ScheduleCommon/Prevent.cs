@@ -5,24 +5,24 @@ using System.Text;
 
 namespace ScheduleCommon
 {
-    public class Prevent
+    public class TimeDayRequirement
     {
-        public Professor prof { get; set; }
-        public int day { get; set; }
-        public TimeSpan start { get; set; }
-        public TimeSpan end { get; set; }
+        public Professor Professor { get; set; }
+        public int Day { get; set; }
+        public TimeSpan Start { get; set; }
+        public TimeSpan End { get; set; }
 
-        public Prevent(Professor aProf, int aDay, TimeSpan aStart, TimeSpan aEnd)
+        public TimeDayRequirement(Professor aProf, int aDay, TimeSpan aStart, TimeSpan aEnd)
         {
-            prof = aProf;
-            day = aDay;
-            start = aStart;
-            end = aEnd;
+            Professor = aProf;
+            Day = aDay;
+            Start = aStart;
+            End = aEnd;
         }
 
         public override string ToString()
         {
-            return string.Format("Professor {0} can't work on {1} form {2} to {3}", prof, day, start, end);
+            return string.Format("{0} can't work on day {1} from {2} to {3}", Professor, Day, Start, End);
         }
     }
 }

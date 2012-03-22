@@ -11,8 +11,8 @@ namespace ScheduleCommon
         private List<int> off;
         public ProfessorDayConstraint(Professor professor, List<int> daysOff)
         {
-            this.prof = professor;
-            this.off = daysOff;
+            prof = professor;
+            off = daysOff;
         }
 
         public ConstraintResult Check(Schedule sched)
