@@ -5,3 +5,10 @@ C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\Tests\bin
 C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\Tests\obj\x86\Debug\Tests.csprojResolveAssemblyReference.cache
 C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\Tests\obj\x86\Debug\Tests.exe
 C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\Tests\obj\x86\Debug\Tests.pdb
+C:\GIT\TP\Tests\obj\x86\Debug\Tests.exe
+C:\GIT\TP\Tests\obj\x86\Debug\Tests.pdb
+C:\GIT\TP\Tests\bin\Debug\Tests.exe
+C:\GIT\TP\Tests\bin\Debug\Tests.pdb
+C:\GIT\TP\Tests\bin\Debug\ScheduleCommon.dll
+C:\GIT\TP\Tests\bin\Debug\ScheduleCommon.pdb
+C:\GIT\TP\Tests\obj\x86\Debug\ResolveAssemblyReference.cache
