@@ -10,8 +10,9 @@ namespace ScheduleCommon
     /// </summary>
     public class Schedule
     {
-        Dictionary<StudentGroup, List<Class>>[] days = new Dictionary<StudentGroup, List<Class>>[7];
-        Dictionary<StudentGroup, TimeSpan>[] startTimes = new Dictionary<StudentGroup, TimeSpan>[7];
+        const int DAYCOUNT = 7;
+        Dictionary<StudentGroup, List<Class>>[] days = new Dictionary<StudentGroup, List<Class>>[DAYCOUNT];
+        Dictionary<StudentGroup, TimeSpan>[] startTimes = new Dictionary<StudentGroup, TimeSpan>[DAYCOUNT];
         public Schedule()
         {
             for (int i = 0; i < days.Length; i++)
@@ -46,7 +47,7 @@ namespace ScheduleCommon
         }
         public TimeSpan GetStartTimeForClass(int aDay, StudentGroup aGroup, Class aClass)
         {
-            if (aDay < 0 || aDay >= 7) throw new ArgumentOutOfRangeException("aDay", "Day should be between 0 and 6");
+            if (aDay < 0 || aDay >= days.Length) throw new ArgumentOutOfRangeException("aDay", "Day should be between 0 and 6");
             if (aGroup == null) throw new ArgumentNullException("aGroup");
             if (aClass == null) throw new ArgumentNullException("aClass");
             if (!startTimes[aDay].ContainsKey(aGroup))
