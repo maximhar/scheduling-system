@@ -32,10 +32,10 @@ namespace ScheduleWPF
             var profs = Configuration.Instance.Professors;
             for(int i = 0;i<7;i++)
             {
-                CurrentSchedule[i][groups[0]] = new List<Class>();
-                CurrentSchedule[i][groups[1]] = new List<Class>();
-                CurrentSchedule[i][groups[2]] = new List<Class>();
-                CurrentSchedule[i][groups[3]] = new List<Class>();
+                CurrentSchedule[i][groups[0]] = new ObservableCollection<Class>();
+                CurrentSchedule[i][groups[1]] = new ObservableCollection<Class>();
+                CurrentSchedule[i][groups[2]] = new ObservableCollection<Class>();
+                CurrentSchedule[i][groups[3]] = new ObservableCollection<Class>();
             }
             CurrentSchedule[0][groups[0]].Add(new Class(groups[0], courses[0], TimeSpan.FromMinutes(80), rooms[1]));
             CurrentSchedule[0][groups[0]].Add(new Class(groups[0], courses[1], TimeSpan.FromMinutes(80), rooms[0]));
@@ -65,7 +65,14 @@ namespace ScheduleWPF
                 int indexmodifier = 0;
                 if ((source.IndexOf(daydrop) < dropInfo.InsertIndex) && (dropInfo.TargetCollection == dropInfo.DragInfo.SourceCollection)) indexmodifier = -1;
                 source.Remove(daydrop);
-                target.Insert(dropInfo.InsertIndex+indexmodifier, (Class)daydrop);
+                if (target.Count > 0)
+                {
+                    target.Insert(dropInfo.InsertIndex + indexmodifier, (Class)daydrop);
+                }
+                else
+                {
+                    target.Add((Class)daydrop);
+                }
         }
     }
 }

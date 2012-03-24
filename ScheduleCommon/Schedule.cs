@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Collections.ObjectModel;
 
 namespace ScheduleCommon
 {
@@ -11,13 +12,13 @@ namespace ScheduleCommon
     public class Schedule
     {
         const int DAYCOUNT = 7;
-        Dictionary<StudentGroup, List<Class>>[] days = new Dictionary<StudentGroup, List<Class>>[DAYCOUNT];
+        Dictionary<StudentGroup, ObservableCollection<Class>>[] days = new Dictionary<StudentGroup, ObservableCollection<Class>>[DAYCOUNT];
         Dictionary<StudentGroup, TimeSpan>[] startTimes = new Dictionary<StudentGroup, TimeSpan>[DAYCOUNT];
         public Schedule()
         {
             for (int i = 0; i < days.Length; i++)
             {
-                days[i] = new Dictionary<StudentGroup, List<Class>>();
+                days[i] = new Dictionary<StudentGroup, ObservableCollection<Class>>();
                 startTimes[i] = new Dictionary<StudentGroup, TimeSpan>();
             }
         }
@@ -26,7 +27,7 @@ namespace ScheduleCommon
         /// </summary>
         /// <param name="index">The day of the week.</param>
         /// <returns></returns>
-        public Dictionary<StudentGroup, List<Class>> this[int index]
+        public Dictionary<StudentGroup, ObservableCollection<Class>> this[int index]
         {
             get
             {

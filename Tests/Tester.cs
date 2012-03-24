@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using ScheduleCommon;
 using System.Diagnostics;
+using System.Collections.ObjectModel;
 
 namespace Tests
 {
@@ -72,8 +73,8 @@ namespace Tests
                 sched.SetStartTime(i, g11a, new TimeSpan(8, 0, 0));
                 sched.SetStartTime(i, g11g, new TimeSpan(8, 0, 0));
             }
-            sched[0][g11a] = new List<Class>();
-            sched[0][g11g] = new List<Class>();
+            sched[0][g11a] = new ObservableCollection<Class>();
+            sched[0][g11g] = new ObservableCollection<Class>();
 
             sched[0][g11a].Add(tp11a);//11A class has TP from 8AM to 9:20AM in room 32
             sched[0][g11g].Add(math11g);//11G class has Maths from 8AM to 10AM in room 32
@@ -130,8 +131,8 @@ namespace Tests
                 sched.SetStartTime(i, g11a, new TimeSpan(8, 0, 0));
                 sched.SetStartTime(i, g11g, new TimeSpan(8, 0, 0));
             }
-            sched[0][g11a] = new List<Class>();
-            sched[0][g11g] = new List<Class>();
+            sched[0][g11a] = new ObservableCollection<Class>();
+            sched[0][g11g] = new ObservableCollection<Class>();
 
             sched[0][g11a].Add(tp11a);//11A class has TP from 8AM to 9:20AM in room 32
             sched[0][g11g].Add(math11g);//11G class has Maths from 8AM to 10AM in room 24
@@ -188,8 +189,8 @@ namespace Tests
                 sched.SetStartTime(i, g11a, new TimeSpan(8, 0, 0));
                 sched.SetStartTime(i, g11g, new TimeSpan(10, 0, 0));
             }
-            sched[0][g11a] = new List<Class>();
-            sched[0][g11g] = new List<Class>();
+            sched[0][g11a] = new ObservableCollection<Class>();
+            sched[0][g11g] = new ObservableCollection<Class>();
 
             sched[0][g11a].Add(tp11a);//11A class has TP from 8AM to 9:20AM in room 32
             sched[0][g11g].Add(math11g);//11G class has Maths from 10AM to 12AM in room 32
@@ -247,8 +248,8 @@ namespace Tests
                 sched.SetStartTime(i, g11a, new TimeSpan(8, 0, 0));
                 sched.SetStartTime(i, g11g, new TimeSpan(8, 0, 0));
             }
-            sched[0][g11a] = new List<Class>();
-            sched[0][g11g] = new List<Class>();
+            sched[0][g11a] = new ObservableCollection<Class>();
+            sched[0][g11g] = new ObservableCollection<Class>();
 
             sched[0][g11a].Add(tp11a);//11A class has TP from 8AM to 9:20AM in room 32
             sched[0][g11g].Add(tp11g);//11G class has TP from 8AM to 9:20AM in room 24
@@ -307,8 +308,8 @@ namespace Tests
                 sched.SetStartTime(i, g11a, new TimeSpan(8, 0, 0));
                 sched.SetStartTime(i, g11g, new TimeSpan(8, 0, 0));
             }
-            sched[0][g11a] = new List<Class>();
-            sched[0][g11g] = new List<Class>();
+            sched[0][g11a] = new ObservableCollection<Class>();
+            sched[0][g11g] = new ObservableCollection<Class>();
 
             sched[0][g11a].Add(tp11a);//11A class has TP from 8AM to 9:20AM in room 32
             sched[0][g11g].Add(maths11g);//11G class has Maths from 8AM to 9:20AM in room 24
@@ -367,8 +368,8 @@ namespace Tests
                 sched.SetStartTime(i, g11a, new TimeSpan(8, 0, 0));
                 sched.SetStartTime(i, g11g, new TimeSpan(9, 20, 0));
             }
-            sched[0][g11a] = new List<Class>();
-            sched[0][g11g] = new List<Class>();
+            sched[0][g11a] = new ObservableCollection<Class>();
+            sched[0][g11g] = new ObservableCollection<Class>();
 
             sched[0][g11a].Add(tp11a);//11A class has TP from 8AM to 9:20AM in room 32 on monday
             sched[0][g11g].Add(tp11g);//11G class has TP from 9:20AM to 10:40AM in room 24 on monday
@@ -427,8 +428,8 @@ namespace Tests
                 sched.SetStartTime(i, g11a, new TimeSpan(8, 0, 0));
                 sched.SetStartTime(i, g11g, new TimeSpan(9, 35, 0));
             }
-            sched[0][g11a] = new List<Class>();
-            sched[0][g11g] = new List<Class>();
+            sched[0][g11a] = new ObservableCollection<Class>();
+            sched[0][g11g] = new ObservableCollection<Class>();
 
             sched[0][g11a].Add(tp11a);//11A class has TP from 8AM to 9:20AM in room 32 on monday
             sched[0][g11g].Add(tp11g);//11G class has TP from 9:35AM to 10:55AM in room 24 on monday
@@ -488,8 +489,8 @@ namespace Tests
                 sched.SetStartTime(i, g11a, new TimeSpan(8, 0, 0));
                 sched.SetStartTime(i, g11g, new TimeSpan(9, 35, 0));
             }
-            sched[0][g11a] = new List<Class>();
-            sched[0][g11g] = new List<Class>();
+            sched[0][g11a] = new ObservableCollection<Class>();
+            sched[0][g11g] = new ObservableCollection<Class>();
 
             sched[0][g11a].Add(tp11a);//11A class has TP from 8AM to 9:20AM in room 32 on monday
             sched[0][g11g].Add(tp11g);//11G class has TP from 9:35AM to 10:55AM in room 24 on monday
