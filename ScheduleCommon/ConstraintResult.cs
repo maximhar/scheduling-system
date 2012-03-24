@@ -20,5 +20,9 @@ namespace ScheduleCommon
             fulfilled = aFulfilled;
             errorMessage = aErrorMessage;
         }
+        public override string ToString()
+        {
+            return string.Format("Fullfilled: {0}, {1}", fulfilled, errorMessage);
+        }
     }
 }

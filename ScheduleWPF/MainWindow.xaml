@@ -40,7 +40,9 @@
                     <Label FontWeight="Bold" FontSize="14" Foreground="Black" Content="{Binding Path=Course.Name}" Margin="0" Padding="2"></Label>
                     <Label TextOptions.TextFormattingMode="Display" Content="{Binding Path=Course.Professor.Name}" Margin="0" Padding="2"></Label>
                     <Label TextOptions.TextFormattingMode="Display" Content="{Binding Path=Group.Name}" Margin="0" Padding="2"></Label>
-                </StackPanel>
+                    <Label TextOptions.TextFormattingMode="Display" Content="{Binding Path=Room}" Margin="0" Padding="2"></Label>
+                    <Label TextOptions.TextFormattingMode="Display" Content="{Binding Path=Length}" Margin="0" Padding="2"></Label>
+            </StackPanel>
         </DataTemplate>
         <DataTemplate x:Key="comboGroupsTemplate">
             <StackPanel>
@@ -78,7 +80,12 @@
             <RowDefinition/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <UniformGrid Grid.Row="1" Rows="1">
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+        <UniformGrid Grid.Column="0" Rows="1">
             <ListBox Name="listMonday"  Style="{StaticResource dayListStyle}">
             </ListBox>
             <ListBox Name="listTuesday" ItemsSource="{Binding Tuesday}" Style="{StaticResource dayListStyle}"></ListBox>
@@ -86,6 +93,8 @@
             <ListBox Name="listThursday" ItemsSource="{Binding Thursday}" Style="{StaticResource dayListStyle}"></ListBox>
             <ListBox Name="listFriday" ItemsSource="{Binding Friday}" Style="{StaticResource dayListStyle}"></ListBox>
         </UniformGrid>
+            <ListBox Grid.Column="1" Name="ListConflicts" ItemsSource="{Binding Conflicts}"></ListBox>
+        </Grid>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button Style="{StaticResource buttonStyle}">Close</Button>
             <Button Style="{StaticResource buttonStyle}">OK</Button>

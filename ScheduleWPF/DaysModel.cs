@@ -14,8 +14,11 @@ namespace ScheduleWPF
     class DaysModel:IDropTarget
     {
         public Schedule CurrentSchedule { get; set; }
+        public ObservableCollection<ConstraintResult> Conflicts { get; set; }
         void InitializeSchedule()
         {
+            Conflicts = new ObservableCollection<ConstraintResult>();
+            
             Configuration.Instance.Groups = new List<StudentGroup>{new StudentGroup("11A"),
                 new StudentGroup("11B"), new StudentGroup("11V"), new StudentGroup("11G")};
             Configuration.Instance.Professors = new List<Professor>{new Professor("Abramowitch"),
@@ -26,6 +29,7 @@ namespace ScheduleWPF
                 new Course("TP", Configuration.Instance.Professors[2], CourseType.ComputerCourse)};
             Configuration.Instance.Rooms = new List<Room>{new Room("42", CourseType.NormalCourse), new Room("21", CourseType.NormalCourse),
                 new Room("34", CourseType.ComputerCourse)};
+            Configuration.Instance.Constraints.Add(new ProfessorDayConstraint(Configuration.Instance.Professors[0], new List<int> { 0, 1 }));
             var groups = Configuration.Instance.Groups;
             var courses = Configuration.Instance.Courses;
             var rooms = Configuration.Instance.Rooms;
@@ -46,6 +50,7 @@ namespace ScheduleWPF
             CurrentSchedule = new Schedule();
             var conf = Configuration.Instance;
             InitializeSchedule();
+            EvaluateConstraints();
         }
 
         void IDropTarget.DragOver(DropInfo dropInfo)
@@ -73,6 +78,16 @@ namespace ScheduleWPF
                 {
                     target.Add((Class)daydrop);
                 }
+                EvaluateConstraints();
+        }
+        void EvaluateConstraints()
+        {
+            Conflicts.Clear();
+            foreach (var constraint in Configuration.Instance.Constraints)
+            {
+                var result = constraint.Check(CurrentSchedule);
+                if (!result.ConstraintFulfilled) Conflicts.Add(result);
+            }
         }
     }
 }
