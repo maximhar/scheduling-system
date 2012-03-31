@@ -5,11 +5,13 @@ using System.Text;
 
 namespace ScheduleCommon
 {
+    [Serializable]
     public enum CourseType
     {
         NormalCourse,
         ComputerCourse
     }
+    [Serializable]
     public class Course
     {
         public string Name { get; set; }

@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Collections.ObjectModel;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 namespace ScheduleCommon
 {
     /// <summary>
     /// Contains common data that applies to all schedules.
     /// </summary>
+    [Serializable]
     public class Configuration
     {
         private static Configuration instance;
@@ -36,6 +39,7 @@ namespace ScheduleCommon
             Constraints = new ObservableCollection<IConstraint>();
             Rooms = new ObservableCollection<Room>();
         }
+
         public void Clear()
         {
             Professors.Clear();
@@ -43,6 +47,45 @@ namespace ScheduleCommon
             Groups.Clear();
             Constraints.Clear();
             Rooms.Clear();
+        }
+
+        public void SaveToFile(string aPath)
+        {
+            using (Stream stream = File.Open(aPath, FileMode.Create))
+            {
+                BinaryFormatter bin = new BinaryFormatter();
+                bin.Serialize(stream, this);
+            }
+        }
+
+        public void LoadFromFile(string aPath)
+        {
+            using (Stream stream = File.Open(aPath, FileMode.Open))
+            {
+                Clear();
+                BinaryFormatter bin = new BinaryFormatter();
+                Configuration deserialized = bin.Deserialize(stream) as Configuration;
+                foreach (var prof in deserialized.Professors)
+                {
+                    Professors.Add(prof);
+                }
+                foreach (var room in deserialized.Rooms)
+                {
+                    Rooms.Add(room);
+                }
+                foreach (var group in deserialized.Groups)
+                {
+                    Groups.Add(group);
+                }
+                foreach (var course in deserialized.Courses)
+                {
+                    Courses.Add(course);
+                }
+                foreach (var constraint in deserialized.Constraints)
+                {
+                    Constraints.Add(constraint);
+                }
+            }
         }
     }
 }

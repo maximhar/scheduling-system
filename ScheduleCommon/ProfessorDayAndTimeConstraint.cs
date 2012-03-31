@@ -5,6 +5,7 @@ using System.Text;
 
 namespace ScheduleCommon
 {
+    [Serializable]
     public class ProfessorDayAndTimeConstraint : IConstraint
     {
         private List<TimeDayRequirement> requirements;

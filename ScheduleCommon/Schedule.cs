@@ -9,6 +9,7 @@ namespace ScheduleCommon
     /// <summary>
     /// A schedule of all classes through all days in a single school.
     /// </summary>
+    [Serializable]
     public class Schedule
     {
         const int DAYCOUNT = 7;

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ScheduleCommon
 {
-
+    [Serializable]
     public class Room
     {
         public string Name { get; set; }

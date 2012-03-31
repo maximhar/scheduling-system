@@ -5,6 +5,7 @@ using System.Text;
 
 namespace ScheduleCommon
 {
+    [Serializable]
     public class ProfessorTimeConstraint : IConstraint
     {
         private Professor prof;

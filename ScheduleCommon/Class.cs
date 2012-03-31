@@ -6,6 +6,7 @@ using System.ComponentModel;
 
 namespace ScheduleCommon
 {
+    [Serializable]
     public class Class:INotifyPropertyChanged
     {
         StudentGroup group;

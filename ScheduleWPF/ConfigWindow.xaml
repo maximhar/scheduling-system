@@ -53,6 +53,12 @@
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
                     <ListBox Name="listProfessors" Grid.Column="0"/>
+                    <StackPanel Grid.Column="1">
+                        <Label>Professor name:</Label>
+                        <TextBox Name="txtProfessorName"></TextBox>
+                        <Button Margin="0,4" Name="buttonCreateProfessor" Click="buttonCreateProfessor_Click">Create professor</Button>
+                        <Button Margin="0,4" Name="buttonDeleteProfessor" Click="buttonDeleteProfessor_Click">Delete selected professor</Button>
+                    </StackPanel>
                 </Grid>
             </TabItem>
             <TabItem Header="Rooms">
@@ -62,6 +68,17 @@
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
                     <ListBox Name="listRooms" Grid.Column="0"/>
+                    <StackPanel Grid.Column="1">
+                        <Label>Room name:</Label>
+                        <TextBox Name="txtRoomName"></TextBox>
+                        <Label>Course type:</Label>
+                        <ComboBox Name="comboRoomType">
+                            <ComboBoxItem >Normal room</ComboBoxItem>
+                            <ComboBoxItem>Computer room</ComboBoxItem>
+                        </ComboBox>
+                        <Button Margin="0,4" Name="buttonCreateRoom" Click="buttonCreateRoom_Click">Create room</Button>
+                        <Button Margin="0,4" Name="buttonDeleteRoom" Click="buttonDeleteRoom_Click">Delete selected room</Button>
+                    </StackPanel>
                 </Grid>
             </TabItem>
             <TabItem Header="Constraints">
@@ -76,6 +93,8 @@
         </TabControl>
         <StackPanel Margin="2" Grid.Row="1" Orientation="Horizontal" FlowDirection="RightToLeft">
             <Button Name="buttonClose" Margin="2" Width="60" Click="buttonClose_Click">Close</Button>
+            <Button Name="buttonSave" Margin="2" Width="60" Click="buttonSave_Click">Save</Button>
+            <Button Name="buttonLoad" Margin="2" Width="60" Click="buttonLoad_Click">Load</Button>
         </StackPanel>
     </Grid>
 </Window>

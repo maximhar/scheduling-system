@@ -5,6 +5,7 @@ using System.Text;
 
 namespace ScheduleCommon
 {
+    [Serializable]
     public class RoomTimeOverlapConstraint : IConstraint
     {
         public RoomTimeOverlapConstraint()

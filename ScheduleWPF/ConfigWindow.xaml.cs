@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ScheduleCommon;
+using Microsoft.Win32;
 namespace ScheduleWPF
 {
     /// <summary>
@@ -55,12 +56,12 @@ namespace ScheduleWPF
 
         private void buttonDeleteGroup_Click(object sender, RoutedEventArgs e)
         {
-                Configuration.Instance.Groups.Remove((StudentGroup)listGroups.SelectedItem);
+            Configuration.Instance.Groups.Remove((StudentGroup)listGroups.SelectedItem);
         }
 
         private void buttonCreateCourse_Click(object sender, RoutedEventArgs e)
         {
-            if (comboProfessors.SelectedItem == null)
+            if (comboProfessors.SelectedIndex == -1)
             {
                 MessageBox.Show("A professor is required.");
                 return;
@@ -81,6 +82,76 @@ namespace ScheduleWPF
         private void buttonDeleteCourse_Click(object sender, RoutedEventArgs e)
         {
             Configuration.Instance.Courses.Remove((Course)listCourses.SelectedItem);
+        }
+
+        private void buttonCreateProfessor_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtProfessorName.Text.Trim() != string.Empty)
+            {
+                Professor newProfessor = new Professor(txtProfessorName.Text);
+                Configuration.Instance.Professors.Add(newProfessor);
+            }
+            else MessageBox.Show("A professor name is required.");
+        }
+
+        private void buttonDeleteProfessor_Click(object sender, RoutedEventArgs e)
+        {
+            Configuration.Instance.Professors.Remove((Professor)listProfessors.SelectedItem);
+        }
+
+        private void buttonCreateRoom_Click(object sender, RoutedEventArgs e)
+        {
+            if (comboRoomType.SelectedIndex == -1)
+            {
+                MessageBox.Show("A room type is required.");
+                return;
+            }
+            if (txtRoomName.Text.Trim() != string.Empty)
+            {
+                Room newRoom = new Room(txtRoomName.Text, comboRoomType.SelectedIndex == 0 ? CourseType.NormalCourse : CourseType.ComputerCourse);
+                Configuration.Instance.Rooms.Add(newRoom);
+            }
+            else MessageBox.Show("A room name is required.");
+        }
+
+        private void buttonDeleteRoom_Click(object sender, RoutedEventArgs e)
+        {
+            Configuration.Instance.Rooms.Remove((Room)listRooms.SelectedItem);
+        }
+
+        private void buttonSave_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                SaveFileDialog saveDialog = new SaveFileDialog();
+                saveDialog.Filter = "Schedule configuration|*.schcf";
+                saveDialog.DefaultExt = ".schcf";
+                if (saveDialog.ShowDialog().Value == true)
+                {
+                    Configuration.Instance.SaveToFile(saveDialog.FileName);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Oops. Couldn't save!");
+            }
+        }
+
+        private void buttonLoad_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                OpenFileDialog openDialog = new OpenFileDialog();
+                openDialog.Filter = "Schedule configuration|*.schcf";
+                if (openDialog.ShowDialog().Value == true)
+                {
+                    Configuration.Instance.LoadFromFile(openDialog.FileName);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Oops. Couldn't load!");
+            }
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 
 namespace ScheduleCommon
 {
+    [Serializable]
     public class Professor
     {
         public string Name { get; set; }
@@ -13,7 +14,6 @@ namespace ScheduleCommon
         private Professor()
         {
             Name = string.Empty;
-           // this.empty = true;
         }
         public Professor(string aName)
         {
