@@ -99,8 +99,9 @@
             <Button Style="{StaticResource buttonStyle}">Close</Button>
             <Button Style="{StaticResource buttonStyle}">OK</Button>
         </StackPanel>
-        <StackPanel Grid.Row="0" Orientation="Horizontal">
-            <ComboBox Name="comboClass" Width="100" SelectionChanged="comboClass_SelectionChanged" Style="{StaticResource comboGroupsStyle}"></ComboBox>
+        <StackPanel Margin="2" Grid.Row="0" Orientation="Horizontal">
+            <ComboBox Margin="2" Name="comboClass" Width="100" SelectionChanged="comboClass_SelectionChanged" Style="{StaticResource comboGroupsStyle}"></ComboBox>
+            <Button Margin="2" HorizontalAlignment="Right" Name="buttonOpenConfig" Width="100" Click="buttonOpenConfig_Click">Configuration</Button>
         </StackPanel>
     </Grid>
 </Window>

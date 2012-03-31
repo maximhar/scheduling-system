@@ -39,5 +39,11 @@ namespace ScheduleWPF
             listThursday.ItemsSource = model.CurrentSchedule[3][(StudentGroup)comboClass.SelectedItem];
             listFriday.ItemsSource = model.CurrentSchedule[4][(StudentGroup)comboClass.SelectedItem];
         }
+
+        private void buttonOpenConfig_Click(object sender, RoutedEventArgs e)
+        {
+            ConfigWindow configurationWindow = new ConfigWindow();
+            configurationWindow.ShowDialog();
+        }
     }
 }

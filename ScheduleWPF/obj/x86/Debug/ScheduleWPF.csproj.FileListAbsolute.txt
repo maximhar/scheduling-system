@@ -15,3 +15,5 @@ C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleW
 C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleWPF\obj\x86\Debug\ScheduleWPF.csproj.GenerateResource.Cache
 C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleWPF\obj\x86\Debug\ScheduleWPF.exe
 C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleWPF\obj\x86\Debug\ScheduleWPF.pdb
+C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleWPF\obj\x86\Debug\ConfigWindow.baml
+C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleWPF\obj\x86\Debug\ConfigWindow.g.cs
