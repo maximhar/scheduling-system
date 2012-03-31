@@ -23,6 +23,7 @@ namespace ScheduleCommon
         public override bool Equals(object obj)
         {
             if (obj == null) return false;
+            if (!(obj is StudentGroup)) return false;
             return ((StudentGroup)obj).Name == Name;
         }
     }

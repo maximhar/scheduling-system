@@ -18,16 +18,16 @@ namespace ScheduleWPF
         void InitializeSchedule()
         {
             Conflicts = new ObservableCollection<ConstraintResult>();
-            
-            Configuration.Instance.Groups = new List<StudentGroup>{new StudentGroup("11A"),
+
+            Configuration.Instance.Groups = new ObservableCollection<StudentGroup>{new StudentGroup("11A"),
                 new StudentGroup("11B"), new StudentGroup("11V"), new StudentGroup("11G")};
-            Configuration.Instance.Professors = new List<Professor>{new Professor("Abramowitch"),
+            Configuration.Instance.Professors = new ObservableCollection<Professor>{new Professor("Abramowitch"),
                 new Professor("Mitova"), new Professor("Mitov")};
-            Configuration.Instance.Courses = new List<Course>
+            Configuration.Instance.Courses = new ObservableCollection<Course>
                 {new Course("Maths", Configuration.Instance.Professors[0], CourseType.NormalCourse),
                 new Course("BEL", Configuration.Instance.Professors[1], CourseType.NormalCourse), 
                 new Course("TP", Configuration.Instance.Professors[2], CourseType.ComputerCourse)};
-            Configuration.Instance.Rooms = new List<Room>{new Room("42", CourseType.NormalCourse), new Room("21", CourseType.NormalCourse),
+            Configuration.Instance.Rooms = new ObservableCollection<Room>{new Room("42", CourseType.NormalCourse), new Room("21", CourseType.NormalCourse),
                 new Room("34", CourseType.ComputerCourse)};
             Configuration.Instance.Constraints.Add(new ProfessorDayConstraint(Configuration.Instance.Professors[0], new List<int> { 0, 1 }));
             var groups = Configuration.Instance.Groups;

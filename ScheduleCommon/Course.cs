@@ -23,7 +23,7 @@ namespace ScheduleCommon
         }
         public override string ToString()
         {
-            return string.Format("{0}, Professor: {1}, Type: {2}", Name, Professor, CourseType);
+            return Name;
         }
     }
 }
