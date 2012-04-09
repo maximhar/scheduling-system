@@ -20,6 +20,7 @@ namespace ScheduleCommon
         public ObservableCollection<StudentGroup> Groups { get; set; }
         public ObservableCollection<IConstraint> Constraints { get; set; }
         public ObservableCollection<Room> Rooms { get; set; }
+
         public static Configuration Instance
         {
             get

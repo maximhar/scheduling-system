@@ -19,7 +19,7 @@ namespace ScheduleWPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        DaysModel model = new DaysModel();
+        DaysModel model;
         public MainWindow()
         {
             InitializeComponent();
@@ -27,6 +27,7 @@ namespace ScheduleWPF
         
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            model = (DaysModel)this.DataContext;
             comboClass.ItemsSource = Configuration.Instance.Groups;
             
         }

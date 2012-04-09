@@ -83,18 +83,30 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
                 <ColumnDefinition />
                 <ColumnDefinition Width="200"/>
             </Grid.ColumnDefinitions>
-        <UniformGrid Grid.Column="0" Rows="1">
+            
+            <UniformGrid Grid.Column="1" Rows="1">
             <ListBox Name="listMonday"  Style="{StaticResource dayListStyle}">
             </ListBox>
-            <ListBox Name="listTuesday" ItemsSource="{Binding Tuesday}" Style="{StaticResource dayListStyle}"></ListBox>
-            <ListBox Name="listWednesday" ItemsSource="{Binding Wednesday}" Style="{StaticResource dayListStyle}"></ListBox>
-            <ListBox Name="listThursday" ItemsSource="{Binding Thursday}" Style="{StaticResource dayListStyle}"></ListBox>
-            <ListBox Name="listFriday" ItemsSource="{Binding Friday}" Style="{StaticResource dayListStyle}"></ListBox>
+            <ListBox Name="listTuesday" Style="{StaticResource dayListStyle}"></ListBox>
+            <ListBox Name="listWednesday"  Style="{StaticResource dayListStyle}"></ListBox>
+            <ListBox Name="listThursday"  Style="{StaticResource dayListStyle}"></ListBox>
+            <ListBox Name="listFriday" Style="{StaticResource dayListStyle}"></ListBox>
         </UniformGrid>
-            <ListBox Grid.Column="1" Name="ListConflicts" ItemsSource="{Binding Conflicts}"></ListBox>
+            <ListBox Grid.Column="0" Name="ListClassesAvailable"/>
+            
+            <ListBox Grid.Column="2" Name="ListConflicts" ItemsSource="{Binding Path=Conflicts}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path=ErrorMessage}" Padding="2" TextWrapping="WrapWithOverflow"></TextBlock>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <GridSplitter Grid.Column ="0" Width="3" Background="Gray"/>
+            <GridSplitter Grid.Column ="1" Width="3" Background="Gray"/>
         </Grid>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button Style="{StaticResource buttonStyle}">Close</Button>
