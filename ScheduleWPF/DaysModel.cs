@@ -14,6 +14,20 @@ namespace ScheduleWPF
     class DaysModel:IDropTarget
     {
         public Schedule CurrentSchedule { get; set; }
+        public ObservableCollection<Room> AllRooms
+        {
+            get
+            {
+                return ConfigurationInstance.Rooms;
+            }
+        }
+        public Configuration ConfigurationInstance
+        {
+            get
+            {
+                return Configuration.Instance;
+            }
+        }
         public ObservableCollection<ConstraintResult> Conflicts { get; set; }
         void InitializeSchedule()
         {
@@ -68,6 +82,7 @@ namespace ScheduleWPF
                     }
                 }
             }
+            EvaluateConstraints();
         }
         void IDropTarget.DragOver(DropInfo dropInfo)
         {
@@ -80,6 +95,8 @@ namespace ScheduleWPF
 
         void IDropTarget.Drop(DropInfo dropInfo)
         {
+            try
+            {
                 var daydrop = (Class)dropInfo.Data;
                 var source = ((IList)dropInfo.DragInfo.SourceCollection);
                 var target = ((IList)dropInfo.TargetCollection);
@@ -95,8 +112,12 @@ namespace ScheduleWPF
                     target.Add((Class)daydrop);
                 }
                 EvaluateConstraints();
+            }
+            catch
+            {
+            }
         }
-        void EvaluateConstraints()
+        public void EvaluateConstraints()
         {
             Conflicts.Clear();
             foreach (var constraint in Configuration.Instance.Constraints)

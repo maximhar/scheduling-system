@@ -52,5 +52,11 @@ namespace ScheduleWPF
             var itemToRemove = (Class)((Button)sender).DataContext;
             model.RemoveClass(itemToRemove);
         }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ((Class)((ComboBox)sender).DataContext).Room = (Room)((ComboBox)sender).SelectedItem;
+            model.EvaluateConstraints();
+        }
     }
 }

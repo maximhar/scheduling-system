@@ -3,7 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:dd="clr-namespace:GongSolutions.Wpf.DragDrop;assembly=GongSolutions.Wpf.DragDrop"
         xmlns:local="clr-namespace:ScheduleWPF"
-        Title="MainWindow" Height="350" Width="525" Loaded="Window_Loaded">
+        xmlns:common="clr-namespace:ScheduleCommon;assembly=ScheduleCommon"
+        Title="MainWindow" Height="350" Width="525" Loaded="Window_Loaded" Name="Window1">
+    <Window.DataContext>
+        <local:DaysModel/>
+    </Window.DataContext>
     <Window.Resources>
         <Style x:Key="ListboxItemStyle" TargetType="{x:Type ListBoxItem}">
             <Setter Property="Margin" Value="1,2,1,1"/>
@@ -37,11 +41,25 @@
         </Style>
         <DataTemplate x:Key="listTemplate">
                 <StackPanel>
-                    <Button Click="RemoveButton_Click">Remove</Button>
-                    <Label FontWeight="Bold" FontSize="14" Foreground="Black" Content="{Binding Path=Course.Name}" Margin="0" Padding="2"></Label>
-                    <Label TextOptions.TextFormattingMode="Display" Content="{Binding Path=Course.Professor.Name}" Margin="0" Padding="2"></Label>
-                    <Label TextOptions.TextFormattingMode="Display" Content="{Binding Path=Group.Name}" Margin="0" Padding="2"></Label>
-                    <Label TextOptions.TextFormattingMode="Display" Content="{Binding Path=Room}" Margin="0" Padding="2"></Label>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="20"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Click="RemoveButton_Click" Grid.Column="1">X</Button>
+                    <Label Grid.Column="0" FontWeight="Bold" FontSize="14" Foreground="Black" Content="{Binding Path=Course.Name}" Margin="0" Padding="2"></Label>
+                </Grid>
+                    
+                <Label TextOptions.TextFormattingMode="Display" Content="{Binding Path=Course.Professor.Name}" Margin="0" Padding="2"></Label>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" TextOptions.TextFormattingMode="Display" Content="{Binding Path=Group.Name}" Margin="0" Padding="2"></Label>
+                    <ComboBox Grid.Column="1" SelectedItem="{Binding Path=Room}" ItemsSource="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}},Path=DataContext.ConfigurationInstance.Rooms}" SelectionChanged="ComboBox_SelectionChanged">
+                    </ComboBox>
+                </Grid>
                     <Label TextOptions.TextFormattingMode="Display" Content="{Binding Path=Length}" Margin="0" Padding="2"></Label>
             </StackPanel>
         </DataTemplate>
@@ -72,9 +90,7 @@
             <Setter Property="ComboBox.ItemTemplate" Value="{StaticResource comboGroupsTemplate}"/>
         </Style>
     </Window.Resources>
-    <Window.DataContext>
-        <local:DaysModel/>
-    </Window.DataContext>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
