@@ -10,6 +10,7 @@ namespace ScheduleCommon
     /// A schedule of all classes through all days in a single school.
     /// </summary>
     [Serializable]
+    
     public class Schedule
     {
         const int DAYCOUNT = 7;
@@ -28,6 +29,14 @@ namespace ScheduleCommon
         /// </summary>
         /// <param name="index">The day of the week.</param>
         /// <returns></returns>
+
+        public int Length
+        {
+            get
+            {
+                return days.Length;
+            }
+        }
         public Dictionary<StudentGroup, ObservableCollection<Class>> this[int index]
         {
             get

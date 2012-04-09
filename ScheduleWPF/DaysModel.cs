@@ -52,7 +52,23 @@ namespace ScheduleWPF
             InitializeSchedule();
             EvaluateConstraints();
         }
-
+        public void RemoveClass(Class aClass)
+        {
+            for (int day = 0; day < CurrentSchedule.Length; day++)
+            {
+                foreach (var a in CurrentSchedule[day])
+                {
+                    foreach (var b in a.Value)
+                    {
+                        if (b == aClass)
+                        {
+                            a.Value.Remove(b);
+                            return;
+                        }
+                    }
+                }
+            }
+        }
         void IDropTarget.DragOver(DropInfo dropInfo)
         {
             if (dropInfo.Data is Class)

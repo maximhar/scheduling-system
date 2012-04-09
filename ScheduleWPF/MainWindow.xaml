@@ -37,6 +37,7 @@
         </Style>
         <DataTemplate x:Key="listTemplate">
                 <StackPanel>
+                    <Button Click="RemoveButton_Click">Remove</Button>
                     <Label FontWeight="Bold" FontSize="14" Foreground="Black" Content="{Binding Path=Course.Name}" Margin="0" Padding="2"></Label>
                     <Label TextOptions.TextFormattingMode="Display" Content="{Binding Path=Course.Professor.Name}" Margin="0" Padding="2"></Label>
                     <Label TextOptions.TextFormattingMode="Display" Content="{Binding Path=Group.Name}" Margin="0" Padding="2"></Label>

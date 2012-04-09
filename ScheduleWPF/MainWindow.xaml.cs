@@ -24,7 +24,7 @@ namespace ScheduleWPF
         {
             InitializeComponent();
         }
-
+        
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             comboClass.ItemsSource = Configuration.Instance.Groups;
@@ -44,6 +44,12 @@ namespace ScheduleWPF
         {
             ConfigWindow configurationWindow = new ConfigWindow();
             configurationWindow.ShowDialog();
+        }
+
+        private void RemoveButton_Click(object sender, RoutedEventArgs e)
+        {
+            var itemToRemove = (Class)((Button)sender).DataContext;
+            model.RemoveClass(itemToRemove);
         }
     }
 }
