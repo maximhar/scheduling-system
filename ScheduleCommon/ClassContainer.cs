@@ -2,17 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.ComponentModel;
 
 namespace ScheduleCommon
 {
     [Serializable]
-    public class ClassContainer
+    public class ClassContainer:INotifyPropertyChanged
     {
         Class classPrototype;
         int classCount;
         public int Count
         {
             get { return classCount; }
+            private set { classCount = value; OnCountChanged(); }
+        }
+        public Course PrototypeCourse
+        {
+            get { return classPrototype.Course; }
         }
         public ClassContainer(Class aClass, int aCount)
         {
@@ -22,8 +28,9 @@ namespace ScheduleCommon
         
         public Class GetClass()
         {
-            if (classCount > 0)
+            if (Count > 0)
             {
+                Count--;
                 return (Class)classPrototype.Clone();
             }
             else
@@ -40,12 +47,24 @@ namespace ScheduleCommon
             if (aList.Contains(aClass))
             {
                 aList.Remove(aClass);
-                classCount++;
+                Count++;
             }
             else
             {
                 throw new ArgumentException("The class is not contained in the list.");
             }
         }
+        public override string ToString()
+        {
+            return string.Format("{0}: {1}", classPrototype.Course, classCount);
+        }
+        void OnCountChanged()
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs("Count"));
+            }
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

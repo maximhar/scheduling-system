@@ -5,6 +5,7 @@ using System.Text;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using System.ComponentModel;
 
 namespace ScheduleCommon
 {
@@ -20,7 +21,7 @@ namespace ScheduleCommon
         public ObservableCollection<StudentGroup> Groups { get; set; }
         public ObservableCollection<IConstraint> Constraints { get; set; }
         public ObservableCollection<Room> Rooms { get; set; }
-        public ObservableCollection<ClassContainer> Classes { get; set; }
+        public Dictionary<StudentGroup, TrulyObservableCollection<ClassContainer>> Classes { get; set; }
         public static Configuration Instance
         {
             get
@@ -39,7 +40,7 @@ namespace ScheduleCommon
             Groups = new ObservableCollection<StudentGroup>();
             Constraints = new ObservableCollection<IConstraint>();
             Rooms = new ObservableCollection<Room>();
-            Classes = new ObservableCollection<ClassContainer>();
+            Classes = new Dictionary<StudentGroup, TrulyObservableCollection<ClassContainer>>();
         }
 
         public void Clear()
@@ -90,7 +91,7 @@ namespace ScheduleCommon
                 }
                 foreach (var classcont in deserialized.Classes)
                 {
-                    Classes.Add(classcont);
+                    Classes.Add(classcont.Key, classcont.Value);
                 }
             }
         }

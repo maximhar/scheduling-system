@@ -55,6 +55,7 @@
     <Compile Include="SomeConstraint.cs" />
     <Compile Include="StudentGroup.cs" />
     <Compile Include="TimeOverlapConstraint.cs" />
+    <Compile Include="TrulyObservableCollection.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
