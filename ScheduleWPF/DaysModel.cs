@@ -125,7 +125,7 @@ namespace ScheduleWPF
                         {
                             foreach (var classcont in kv.Value)
                             {
-                                if (classcont.PrototypeCourse == aClass.Course)
+                                if ((classcont.Prototype.Course == aClass.Course) && (classcont.Prototype.Group == aClass.Group))
                                 {
                                     classcont.AddClass(aClass, a.Value);
                                 }

@@ -9,16 +9,16 @@ namespace ScheduleCommon
     [Serializable]
     public class ClassContainer:INotifyPropertyChanged
     {
-        Class classPrototype;
+        readonly Class classPrototype;
         int classCount;
         public int Count
         {
             get { return classCount; }
             private set { classCount = value; OnCountChanged(); }
         }
-        public Course PrototypeCourse
+        public Class Prototype
         {
-            get { return classPrototype.Course; }
+            get { return classPrototype; }
         }
         public ClassContainer(Class aClass, int aCount)
         {

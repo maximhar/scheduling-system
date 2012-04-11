@@ -116,7 +116,7 @@
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <Label Padding="2" Content="{Binding Path=PrototypeCourse}" FontWeight="Bold" />
+                            <Label Padding="2" Content="{Binding Path=Prototype.Course}" FontWeight="Bold" />
                             <Label Padding="2" Content="{Binding Path=Count}"/>
                         </StackPanel>
                     </DataTemplate>
