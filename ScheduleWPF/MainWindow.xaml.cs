@@ -55,8 +55,12 @@ namespace ScheduleWPF
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ((Class)((ComboBox)sender).DataContext).Room = (Room)((ComboBox)sender).SelectedItem;
-            model.EvaluateConstraints();
+            try
+            {
+                ((Class)((ComboBox)sender).DataContext).Room = (Room)((ComboBox)sender).SelectedItem;
+                model.EvaluateConstraints();
+            }
+            catch { }
         }
     }
 }

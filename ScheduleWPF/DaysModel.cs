@@ -63,8 +63,42 @@ namespace ScheduleWPF
         {
             CurrentSchedule = new Schedule();
             var conf = Configuration.Instance;
+            
             InitializeSchedule();
+            conf.Groups.CollectionChanged += new System.Collections.Specialized.NotifyCollectionChangedEventHandler(Groups_CollectionChanged);
             EvaluateConstraints();
+        }
+
+        void Groups_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            UpdateGroups();
+        }
+
+        private void UpdateGroups()
+        {
+            foreach (var g in Configuration.Instance.Groups)
+            {
+                for (int day = 0; day < CurrentSchedule.Length; day++)
+                {
+                    if (!CurrentSchedule[day].ContainsKey(g))
+                    {
+                        CurrentSchedule[day].Add(g, new ObservableCollection<Class>());
+                    }
+                }
+            }
+
+            for (int day = 0; day < CurrentSchedule.Length; day++)
+            {
+                var groupsToRemove = new List<StudentGroup>();
+                foreach (var kv in CurrentSchedule[day])
+                {
+                    if (!Configuration.Instance.Groups.Contains(kv.Key))
+                    {
+                        groupsToRemove.Add(kv.Key);
+                    }
+                }
+                groupsToRemove.ForEach(group => CurrentSchedule[day].Remove(group));
+            }
         }
         public void RemoveClass(Class aClass)
         {

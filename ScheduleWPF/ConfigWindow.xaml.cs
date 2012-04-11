@@ -50,6 +50,7 @@ namespace ScheduleWPF
                     return;
                 }
                 Configuration.Instance.Groups.Add(newGroup);
+
             }
             else MessageBox.Show("A group name is required.");
         }

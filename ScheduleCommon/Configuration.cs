@@ -39,6 +39,7 @@ namespace ScheduleCommon
             Groups = new ObservableCollection<StudentGroup>();
             Constraints = new ObservableCollection<IConstraint>();
             Rooms = new ObservableCollection<Room>();
+            
         }
 
         public void Clear()
