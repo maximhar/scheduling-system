@@ -7,7 +7,7 @@ using System.ComponentModel;
 namespace ScheduleCommon
 {
     [Serializable]
-    public class Class:INotifyPropertyChanged
+    public class Class:INotifyPropertyChanged,ICloneable
     {
         StudentGroup group;
         Course course;
@@ -65,5 +65,10 @@ namespace ScheduleCommon
             PropertyChanged(this, new PropertyChangedEventArgs(aPropertyName));
         }
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public object Clone()
+        {
+            return MemberwiseClone();
+        }
     }
 }

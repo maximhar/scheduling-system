@@ -20,7 +20,7 @@ namespace ScheduleCommon
         public ObservableCollection<StudentGroup> Groups { get; set; }
         public ObservableCollection<IConstraint> Constraints { get; set; }
         public ObservableCollection<Room> Rooms { get; set; }
-
+        public ObservableCollection<ClassContainer> Classes { get; set; }
         public static Configuration Instance
         {
             get
@@ -39,7 +39,7 @@ namespace ScheduleCommon
             Groups = new ObservableCollection<StudentGroup>();
             Constraints = new ObservableCollection<IConstraint>();
             Rooms = new ObservableCollection<Room>();
-            
+            Classes = new ObservableCollection<ClassContainer>();
         }
 
         public void Clear()
@@ -49,6 +49,7 @@ namespace ScheduleCommon
             Groups.Clear();
             Constraints.Clear();
             Rooms.Clear();
+            Classes.Clear();
         }
 
         public void SaveToFile(string aPath)
@@ -86,6 +87,10 @@ namespace ScheduleCommon
                 foreach (var constraint in deserialized.Constraints)
                 {
                     Constraints.Add(constraint);
+                }
+                foreach (var classcont in deserialized.Classes)
+                {
+                    Classes.Add(classcont);
                 }
             }
         }
