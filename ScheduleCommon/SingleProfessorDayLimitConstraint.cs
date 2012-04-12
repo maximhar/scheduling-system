@@ -49,15 +49,6 @@ namespace ScheduleCommon
                         classLimit, prof, classCounter, day);
                     errorContainer.AppendLine(error);
                 }
-
-                /*
-                foreach (var proff in Configuration.Instance.Professors)
-                {
-                    //var group = Configuration.Instance.Groups
-                    var someprof = sched[day][Configuration.Instance.Groups[0]][0].Course.Professor;
-                
-                }
-                */
             }
             return new ConstraintResult(pass, errorContainer.ToString());
         }
