@@ -36,15 +36,8 @@ namespace ScheduleCommon
                         errorContainer.AppendLine(error);
                     }
                 }
-
-
-
             }
-
-
-
-                return new ConstraintResult(true, "Still testing");
-            //return new ConstraintResult(pass, errorContainer.ToString());
+            return new ConstraintResult(pass, errorContainer.ToString());
         }
     }
 }
