@@ -44,6 +44,7 @@ namespace ScheduleWPF
             Configuration.Instance.Rooms = new ObservableCollection<Room>{new Room("42", CourseType.NormalCourse), new Room("21", CourseType.NormalCourse),
                 new Room("34", CourseType.ComputerCourse)};
             Configuration.Instance.Constraints.Add(new ProfessorDayConstraint(Configuration.Instance.Professors[0], new List<int> { 0, 1 }));
+            Configuration.Instance.Constraints.Add(new ProfessorTimeOverlapConstraint());
             var groups = Configuration.Instance.Groups;
             var courses = Configuration.Instance.Courses;
             var rooms = Configuration.Instance.Rooms;
@@ -69,12 +70,19 @@ namespace ScheduleWPF
         }
         public DaysModel()
         {
+            Application.Current.DispatcherUnhandledException += new System.Windows.Threading.DispatcherUnhandledExceptionEventHandler(Current_DispatcherUnhandledException);
             CurrentSchedule = new Schedule();
             var conf = Configuration.Instance;
             
             InitializeSchedule();
             conf.Groups.CollectionChanged += new System.Collections.Specialized.NotifyCollectionChangedEventHandler(Groups_CollectionChanged);
             EvaluateConstraints();
+        }
+
+        void Current_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
+        {
+            MessageBox.Show(string.Format("Oh no. A terrible error occured.{1}{0}", e.Exception.Message, Environment.NewLine), "Oooooops.", MessageBoxButton.OK, MessageBoxImage.Error);
+            e.Handled = true;
         }
 
         void Groups_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
@@ -131,11 +139,12 @@ namespace ScheduleWPF
                                 }
                             }
                         }
+                        EvaluateConstraints();
                         return;
                     }
                 }
             }
-            EvaluateConstraints();
+            
         }
         void IDropTarget.DragOver(DropInfo dropInfo)
         {
@@ -153,8 +162,6 @@ namespace ScheduleWPF
 
         void IDropTarget.Drop(DropInfo dropInfo)
         {
-            try
-            {
                 if (dropInfo.Data is Class)
                 {
                     var daydrop = (Class)dropInfo.Data;
@@ -186,10 +193,6 @@ namespace ScheduleWPF
                     }
                 }
                 EvaluateConstraints();
-            }
-            catch
-            {
-            }
         }
         public void EvaluateConstraints()
         {

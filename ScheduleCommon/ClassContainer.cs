@@ -35,7 +35,7 @@ namespace ScheduleCommon
             }
             else
             {
-                throw new InvalidOperationException("Not enough classes left.");
+                throw new InvalidOperationException("Not enough classes left in class container.");
             }
         }
         public void AddClass(Class aClass, IList<Class> aList)
