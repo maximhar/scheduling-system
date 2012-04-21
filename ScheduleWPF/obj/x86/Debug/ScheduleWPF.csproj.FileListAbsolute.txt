@@ -36,3 +36,4 @@ C:\GIT\TP\ScheduleWPF\obj\x86\Debug\ScheduleWPF.g.resources
 C:\GIT\TP\ScheduleWPF\obj\x86\Debug\ScheduleWPF.Properties.Resources.resources
 C:\GIT\TP\ScheduleWPF\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\GIT\TP\ScheduleWPF\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\GIT\TP\ScheduleWPF\bin\Debug\GongSolutions.Wpf.DragDrop.dll

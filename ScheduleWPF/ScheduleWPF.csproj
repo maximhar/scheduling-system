@@ -38,7 +38,7 @@
   <ItemGroup>
     <Reference Include="GongSolutions.Wpf.DragDrop, Version=0.1.2.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\wpfdraglib\GongSolutions.Wpf.DragDrop.dll</HintPath>
+      <HintPath>..\..\..\Program Files\Microsoft Visual Studio 10.0\GongSolutions.Wpf.DragDrop.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
