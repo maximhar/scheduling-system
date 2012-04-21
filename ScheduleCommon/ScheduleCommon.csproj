@@ -37,10 +37,13 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AllProfessorsDayLimitConstraint.cs" />
     <Compile Include="Class.cs" />
     <Compile Include="ClassContainer.cs" />
+    <Compile Include="ClassCountDayLimitConstraint.cs" />
     <Compile Include="Configuration.cs" />
     <Compile Include="ConstraintResult.cs" />
+    <Compile Include="SingleProfessorDayLimitConstraint.cs" />
     <Compile Include="TimeDayRequirement.cs" />
     <Compile Include="ProfessorDayAndTimeConstraint.cs" />
     <Compile Include="ProfessorDayConstraint.cs" />
