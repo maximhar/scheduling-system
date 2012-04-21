@@ -1,0 +1,7 @@
+C:\GIT\TP\Tests\bin\Debug\Tests.exe
+C:\GIT\TP\Tests\bin\Debug\Tests.pdb
+C:\GIT\TP\Tests\bin\Debug\ScheduleCommon.dll
+C:\GIT\TP\Tests\bin\Debug\ScheduleCommon.pdb
+C:\GIT\TP\Tests\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\GIT\TP\Tests\obj\x86\Debug\Tests.exe
+C:\GIT\TP\Tests\obj\x86\Debug\Tests.pdb
