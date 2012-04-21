@@ -44,10 +44,12 @@ namespace ScheduleWPF
             Configuration.Instance.Rooms = new ObservableCollection<Room>{new Room("42", CourseType.NormalCourse), new Room("21", CourseType.NormalCourse),
                 new Room("34", CourseType.ComputerCourse)};
             Configuration.Instance.Constraints.Add(new ProfessorDayConstraint(Configuration.Instance.Professors[0], new List<int> { 0, 1 }));
+            Configuration.Instance.Constraints.Add(new ProfessorTimeOverlapConstraint());
             var groups = Configuration.Instance.Groups;
             var courses = Configuration.Instance.Courses;
             var rooms = Configuration.Instance.Rooms;
             var profs = Configuration.Instance.Professors;
+            var classes = Configuration.Instance.Classes;
             for(int i = 0;i<7;i++)
             {
                 CurrentSchedule[i][groups[0]] = new ObservableCollection<Class>();
@@ -55,18 +57,32 @@ namespace ScheduleWPF
                 CurrentSchedule[i][groups[2]] = new ObservableCollection<Class>();
                 CurrentSchedule[i][groups[3]] = new ObservableCollection<Class>();
             }
-            CurrentSchedule[0][groups[0]].Add(new Class(groups[0], courses[0], TimeSpan.FromMinutes(80), rooms[1]));
-            CurrentSchedule[0][groups[0]].Add(new Class(groups[0], courses[1], TimeSpan.FromMinutes(80), rooms[0]));
-            CurrentSchedule[0][groups[0]].Add(new Class(groups[0], courses[2], TimeSpan.FromMinutes(80), rooms[2]));
+            classes.Add(groups[0], new TrulyObservableCollection<ClassContainer>());
+            classes.Add(groups[1], new TrulyObservableCollection<ClassContainer>());
+            classes.Add(groups[2], new TrulyObservableCollection<ClassContainer>());
+            classes.Add(groups[3], new TrulyObservableCollection<ClassContainer>());
+            classes[groups[0]].Add(new ClassContainer(new Class(groups[0], courses[0], TimeSpan.FromMinutes(80), rooms[1]), 6));
+            classes[groups[0]].Add(new ClassContainer(new Class(groups[0], courses[1], TimeSpan.FromMinutes(80), rooms[0]), 4));
+            classes[groups[0]].Add(new ClassContainer(new Class(groups[0], courses[2], TimeSpan.FromMinutes(80), rooms[2]), 4));
+            classes[groups[1]].Add(new ClassContainer(new Class(groups[1], courses[0], TimeSpan.FromMinutes(80), rooms[1]), 2));
+            classes[groups[1]].Add(new ClassContainer(new Class(groups[1], courses[1], TimeSpan.FromMinutes(80), rooms[0]), 6));
+            classes[groups[1]].Add(new ClassContainer(new Class(groups[1], courses[2], TimeSpan.FromMinutes(80), rooms[2]), 4));
         }
         public DaysModel()
         {
+            Application.Current.DispatcherUnhandledException += new System.Windows.Threading.DispatcherUnhandledExceptionEventHandler(Current_DispatcherUnhandledException);
             CurrentSchedule = new Schedule();
             var conf = Configuration.Instance;
             
             InitializeSchedule();
             conf.Groups.CollectionChanged += new System.Collections.Specialized.NotifyCollectionChangedEventHandler(Groups_CollectionChanged);
             EvaluateConstraints();
+        }
+
+        void Current_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
+        {
+            MessageBox.Show(string.Format("Oh no. A terrible error occured.{1}{0}", e.Exception.Message, Environment.NewLine), "Oooooops.", MessageBoxButton.OK, MessageBoxImage.Error);
+            e.Handled = true;
         }
 
         void Groups_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
@@ -84,6 +100,10 @@ namespace ScheduleWPF
                     {
                         CurrentSchedule[day].Add(g, new ObservableCollection<Class>());
                     }
+                    if (!Configuration.Instance.Classes.ContainsKey(g))
+                    {
+                        Configuration.Instance.Classes.Add(g, new TrulyObservableCollection<ClassContainer>());
+                    }
                 }
             }
 
@@ -98,6 +118,7 @@ namespace ScheduleWPF
                     }
                 }
                 groupsToRemove.ForEach(group => CurrentSchedule[day].Remove(group));
+                groupsToRemove.ForEach(group => Configuration.Instance.Classes.Remove(group));
             }
         }
         public void RemoveClass(Class aClass)
@@ -106,17 +127,24 @@ namespace ScheduleWPF
             {
                 foreach (var a in CurrentSchedule[day])
                 {
-                    foreach (var b in a.Value)
+                    if (a.Value.Contains(aClass))
                     {
-                        if (b == aClass)
+                        foreach (var kv in Configuration.Instance.Classes)
                         {
-                            a.Value.Remove(b);
-                            return;
+                            foreach (var classcont in kv.Value)
+                            {
+                                if ((classcont.Prototype.Course == aClass.Course) && (classcont.Prototype.Group == aClass.Group))
+                                {
+                                    classcont.AddClass(aClass, a.Value);
+                                }
+                            }
                         }
+                        EvaluateConstraints();
+                        return;
                     }
                 }
             }
-            EvaluateConstraints();
+            
         }
         void IDropTarget.DragOver(DropInfo dropInfo)
         {
@@ -125,31 +153,46 @@ namespace ScheduleWPF
                 dropInfo.DropTargetAdorner = DropTargetAdorners.Insert;
                 dropInfo.Effects = DragDropEffects.Move;
             }
+            else if (dropInfo.Data is ClassContainer)
+            {
+                dropInfo.DropTargetAdorner = DropTargetAdorners.Insert;
+                dropInfo.Effects = DragDropEffects.Copy;
+            }
         }
 
         void IDropTarget.Drop(DropInfo dropInfo)
         {
-            try
-            {
-                var daydrop = (Class)dropInfo.Data;
-                var source = ((IList)dropInfo.DragInfo.SourceCollection);
-                var target = ((IList)dropInfo.TargetCollection);
-                int indexmodifier = 0;
-                if ((source.IndexOf(daydrop) < dropInfo.InsertIndex) && (dropInfo.TargetCollection == dropInfo.DragInfo.SourceCollection)) indexmodifier = -1;
-                source.Remove(daydrop);
-                if (target.Count > 0)
+                if (dropInfo.Data is Class)
                 {
-                    target.Insert(dropInfo.InsertIndex + indexmodifier, (Class)daydrop);
+                    var daydrop = (Class)dropInfo.Data;
+                    var source = ((IList)dropInfo.DragInfo.SourceCollection);
+                    var target = ((IList)dropInfo.TargetCollection);
+                    int indexmodifier = 0;
+                    if ((source.IndexOf(daydrop) < dropInfo.InsertIndex) && (dropInfo.TargetCollection == dropInfo.DragInfo.SourceCollection)) indexmodifier = -1;
+                    source.Remove(daydrop);
+                    if (target.Count > 0)
+                    {
+                        target.Insert(dropInfo.InsertIndex + indexmodifier, daydrop);
+                    }
+                    else
+                    {
+                        target.Add((Class)daydrop);
+                    }
                 }
-                else
+                else if (dropInfo.Data is ClassContainer)
                 {
-                    target.Add((Class)daydrop);
+                    var daydrop = (ClassContainer)dropInfo.Data;
+                    var target = ((IList)dropInfo.TargetCollection);
+                    if (target.Count > 0)
+                    {
+                        target.Insert(dropInfo.InsertIndex, daydrop.GetClass());
+                    }
+                    else
+                    {
+                        target.Add(daydrop.GetClass());
+                    }
                 }
                 EvaluateConstraints();
-            }
-            catch
-            {
-            }
         }
         public void EvaluateConstraints()
         {
