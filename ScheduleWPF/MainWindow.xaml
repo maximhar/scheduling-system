@@ -4,7 +4,7 @@
         xmlns:dd="clr-namespace:GongSolutions.Wpf.DragDrop;assembly=GongSolutions.Wpf.DragDrop"
         xmlns:local="clr-namespace:ScheduleWPF"
         xmlns:common="clr-namespace:ScheduleCommon;assembly=ScheduleCommon"
-        Title="MainWindow" Height="350" Width="525" Loaded="Window_Loaded" Name="Window1">
+        Title="MainWindow" Height="512" Width="1124" Loaded="Window_Loaded" Name="Window1">
     <Window.DataContext>
         <local:DaysModel/>
     </Window.DataContext>
@@ -103,16 +103,34 @@
                 <ColumnDefinition />
                 <ColumnDefinition Width="200"/>
             </Grid.ColumnDefinitions>
-            
-            <UniformGrid Grid.Column="1" Rows="1">
-            <ListBox Name="listMonday"  Style="{StaticResource dayListStyle}">
-            </ListBox>
-            <ListBox Name="listTuesday" Style="{StaticResource dayListStyle}"></ListBox>
-            <ListBox Name="listWednesday"  Style="{StaticResource dayListStyle}"></ListBox>
-            <ListBox Name="listThursday"  Style="{StaticResource dayListStyle}"></ListBox>
-            <ListBox Name="listFriday" Style="{StaticResource dayListStyle}"></ListBox>
-        </UniformGrid>
-            <ListBox Grid.Column="0" Name="listClassesAvailable"  dd:DragDrop.IsDragSource="True" dd:DragDrop.DragHandler="{Binding}" dd:DragDrop.DropHandler="{Binding}">
+
+
+
+            <Grid Grid.Column="1">
+         
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                
+                <UniformGrid Grid.Row="0" Rows="1">
+                    <Label Content="Monday" Height="25" Name="lblMonday" HorizontalContentAlignment="Center" />
+                    <Label Content="Tuesday" Height="25" Name="lblTuesday" HorizontalContentAlignment="Center" />
+                    <Label Content="Wednesday" Height="25" Name="lblWednesday" HorizontalContentAlignment="Center" />
+                    <Label Content="Thursday" Height="25" Name="lblThursday" HorizontalContentAlignment="Center" />
+                    <Label Content="Friday" Height="25" Name="lblFriday" HorizontalContentAlignment="Center" />
+                </UniformGrid>
+                
+                <UniformGrid Grid.Row="1" Rows="1" >   
+                    <ListBox Name="listMonday"  Style="{StaticResource dayListStyle}" />
+                    <ListBox Name="listTuesday" Style="{StaticResource dayListStyle}" />
+                    <ListBox Name="listWednesday"  Style="{StaticResource dayListStyle}" />
+                    <ListBox Name="listThursday"  Style="{StaticResource dayListStyle}" />
+                    <ListBox Name="listFriday" Style="{StaticResource dayListStyle}" />
+                </UniformGrid>
+            </Grid>
+
+                    <ListBox Grid.Column="0" Name="listClassesAvailable"  dd:DragDrop.IsDragSource="True" dd:DragDrop.DragHandler="{Binding}" dd:DragDrop.DropHandler="{Binding}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
