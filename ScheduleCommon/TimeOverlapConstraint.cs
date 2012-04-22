@@ -12,7 +12,7 @@ namespace ScheduleCommon
         }
         public ConstraintResult Check(Schedule aSchedule)
         {
-            return new ConstraintResult(false, "Constraint not implemented yet.");
+            return new ConstraintResult(false, "Constraint not implemented yet. And not gonna");
         }
     }
 }

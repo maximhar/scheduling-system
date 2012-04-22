@@ -1,0 +1,16 @@
+C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleConcept\bin\Debug\info.xml
+C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleConcept\bin\Debug\ScheduleConcept.exe
+C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleConcept\bin\Debug\ScheduleConcept.pdb
+C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleConcept\bin\Debug\ScheduleShared.dll
+C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleConcept\bin\Debug\ScheduleShared.pdb
+C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleConcept\obj\x86\Debug\ScheduleConcept.csprojResolveAssemblyReference.cache
+C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleConcept\obj\x86\Debug\ScheduleConcept.exe
+C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleConcept\obj\x86\Debug\ScheduleConcept.pdb
+C:\GIT\TP\ScheduleConcept\bin\Debug\info.xml
+C:\GIT\TP\ScheduleConcept\bin\Debug\ScheduleConcept.exe
+C:\GIT\TP\ScheduleConcept\bin\Debug\ScheduleConcept.pdb
+C:\GIT\TP\ScheduleConcept\bin\Debug\ScheduleShared.dll
+C:\GIT\TP\ScheduleConcept\bin\Debug\ScheduleShared.pdb
+C:\GIT\TP\ScheduleConcept\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\GIT\TP\ScheduleConcept\obj\x86\Debug\ScheduleConcept.exe
+C:\GIT\TP\ScheduleConcept\obj\x86\Debug\ScheduleConcept.pdb

@@ -1,0 +1,39 @@
+C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleWPF\obj\x86\Debug\ScheduleWPF.csprojResolveAssemblyReference.cache
+C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleWPF\obj\x86\Debug\MainWindow.g.cs
+C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleWPF\obj\x86\Debug\App.g.cs
+C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleWPF\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleWPF\obj\x86\Debug\ScheduleWPF_MarkupCompile.cache
+C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleWPF\obj\x86\Debug\ScheduleWPF_MarkupCompile.lref
+C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleWPF\bin\Debug\ScheduleWPF.exe
+C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleWPF\bin\Debug\ScheduleWPF.pdb
+C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleWPF\bin\Debug\GongSolutions.Wpf.DragDrop.dll
+C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleWPF\bin\Debug\ScheduleCommon.dll
+C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleWPF\bin\Debug\ScheduleCommon.pdb
+C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleWPF\obj\x86\Debug\MainWindow.baml
+C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleWPF\obj\x86\Debug\ScheduleWPF.g.resources
+C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleWPF\obj\x86\Debug\ScheduleWPF.Properties.Resources.resources
+C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleWPF\obj\x86\Debug\ScheduleWPF.csproj.GenerateResource.Cache
+C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleWPF\obj\x86\Debug\ScheduleWPF.exe
+C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleWPF\obj\x86\Debug\ScheduleWPF.pdb
+C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleWPF\obj\x86\Debug\ConfigWindow.baml
+C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleWPF\obj\x86\Debug\ConfigWindow.g.cs
+C:\GIT\TP\ScheduleWPF\obj\x86\Debug\ScheduleWPF.exe
+C:\GIT\TP\ScheduleWPF\obj\x86\Debug\ScheduleWPF.pdb
+C:\GIT\TP\ScheduleWPF\bin\Debug\ScheduleWPF.exe
+C:\GIT\TP\ScheduleWPF\bin\Debug\ScheduleWPF.pdb
+C:\GIT\TP\ScheduleWPF\bin\Debug\ScheduleCommon.dll
+C:\GIT\TP\ScheduleWPF\bin\Debug\ScheduleCommon.pdb
+C:\GIT\TP\ScheduleWPF\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\GIT\TP\ScheduleWPF\obj\x86\Debug\ConfigWindow.baml
+C:\GIT\TP\ScheduleWPF\obj\x86\Debug\ConfigWindow.g.cs
+C:\GIT\TP\ScheduleWPF\obj\x86\Debug\MainWindow.g.cs
+C:\GIT\TP\ScheduleWPF\obj\x86\Debug\App.g.cs
+C:\GIT\TP\ScheduleWPF\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+C:\GIT\TP\ScheduleWPF\obj\x86\Debug\ScheduleWPF_MarkupCompile.cache
+C:\GIT\TP\ScheduleWPF\obj\x86\Debug\ScheduleWPF_MarkupCompile.lref
+C:\GIT\TP\ScheduleWPF\obj\x86\Debug\MainWindow.baml
+C:\GIT\TP\ScheduleWPF\obj\x86\Debug\ScheduleWPF.g.resources
+C:\GIT\TP\ScheduleWPF\obj\x86\Debug\ScheduleWPF.Properties.Resources.resources
+C:\GIT\TP\ScheduleWPF\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\GIT\TP\ScheduleWPF\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\GIT\TP\ScheduleWPF\bin\Debug\GongSolutions.Wpf.DragDrop.dll
