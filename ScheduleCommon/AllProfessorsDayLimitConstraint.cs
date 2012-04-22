@@ -5,7 +5,8 @@ using System.Text;
 
 namespace ScheduleCommon
 {
-    class AllProfessorsDayLimitConstraint : IConstraint
+    [Serializable]
+    public class AllProfessorsDayLimitConstraint : IConstraint
     {
         private int classLimit;
 

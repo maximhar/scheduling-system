@@ -43,8 +43,22 @@ namespace ScheduleWPF
                 new Course("TP", Configuration.Instance.Professors[2], CourseType.ComputerCourse)};
             Configuration.Instance.Rooms = new ObservableCollection<Room>{new Room("42", CourseType.NormalCourse), new Room("21", CourseType.NormalCourse),
                 new Room("34", CourseType.ComputerCourse)};
+            
+            Configuration.Instance.Constraints.Add(new AllProfessorsDayLimitConstraint(9));
+            Configuration.Instance.Constraints.Add(new ClassCountDayLimitConstraint(3));
+            /*Configuration.Instance.Constraints.Add(new ProfessorDayAndTimeConstraint(new List<TimeDayRequirement>
+                {
+                    new TimeDayRequirement(Configuration.Instance.Professors[0], 3, new TimeSpan(8,0,0), new TimeSpan(9,0,0)),
+                    new TimeDayRequirement(Configuration.Instance.Professors[1], 4, new TimeSpan(9,0,0), new TimeSpan(10,0,0))
+                }
+            ));
+            */
             Configuration.Instance.Constraints.Add(new ProfessorDayConstraint(Configuration.Instance.Professors[0], new List<int> { 0, 1 }));
-            Configuration.Instance.Constraints.Add(new ProfessorTimeOverlapConstraint());
+            //Configuration.Instance.Constraints.Add(new ProfessorTimeConstraint(Configuration.Instance.Professors[0], new TimeSpan(9,0,0), new TimeSpan(10,0,0)));
+            //Configuration.Instance.Constraints.Add(new ProfessorTimeOverlapConstraint());
+            //Configuration.Instance.Constraints.Add(new RoomTimeOverlapConstraint());
+            Configuration.Instance.Constraints.Add(new SingleProfessorDayLimitConstraint(Configuration.Instance.Professors[2], 4));
+
             var groups = Configuration.Instance.Groups;
             var courses = Configuration.Instance.Courses;
             var rooms = Configuration.Instance.Rooms;
@@ -61,9 +75,9 @@ namespace ScheduleWPF
             classes.Add(groups[1], new TrulyObservableCollection<ClassContainer>());
             classes.Add(groups[2], new TrulyObservableCollection<ClassContainer>());
             classes.Add(groups[3], new TrulyObservableCollection<ClassContainer>());
-            classes[groups[0]].Add(new ClassContainer(new Class(groups[0], courses[0], TimeSpan.FromMinutes(80), rooms[1]), 6));
+            classes[groups[0]].Add(new ClassContainer(new Class(groups[0], courses[0], TimeSpan.FromMinutes(80), rooms[1]), 10));
             classes[groups[0]].Add(new ClassContainer(new Class(groups[0], courses[1], TimeSpan.FromMinutes(80), rooms[0]), 4));
-            classes[groups[0]].Add(new ClassContainer(new Class(groups[0], courses[2], TimeSpan.FromMinutes(80), rooms[2]), 4));
+            classes[groups[0]].Add(new ClassContainer(new Class(groups[0], courses[2], TimeSpan.FromMinutes(80), rooms[2]), 5));
             classes[groups[1]].Add(new ClassContainer(new Class(groups[1], courses[0], TimeSpan.FromMinutes(80), rooms[1]), 2));
             classes[groups[1]].Add(new ClassContainer(new Class(groups[1], courses[1], TimeSpan.FromMinutes(80), rooms[0]), 6));
             classes[groups[1]].Add(new ClassContainer(new Class(groups[1], courses[2], TimeSpan.FromMinutes(80), rooms[2]), 4));
