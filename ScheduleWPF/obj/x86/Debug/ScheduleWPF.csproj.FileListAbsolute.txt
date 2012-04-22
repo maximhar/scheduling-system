@@ -6,7 +6,6 @@ C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleW
 C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleWPF\obj\x86\Debug\ScheduleWPF_MarkupCompile.lref
 C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleWPF\bin\Debug\ScheduleWPF.exe
 C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleWPF\bin\Debug\ScheduleWPF.pdb
-C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleWPF\bin\Debug\GongSolutions.Wpf.DragDrop.dll
 C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleWPF\bin\Debug\ScheduleCommon.dll
 C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleWPF\bin\Debug\ScheduleCommon.pdb
 C:\Users\maxim4o\documents\visual studio 2010\Projects\ScheduleConcept\ScheduleWPF\obj\x86\Debug\MainWindow.baml

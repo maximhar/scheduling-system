@@ -43,6 +43,7 @@
     <Compile Include="ClassCountDayLimitConstraint.cs" />
     <Compile Include="Configuration.cs" />
     <Compile Include="ConstraintResult.cs" />
+    <Compile Include="ConversionServices.cs" />
     <Compile Include="SingleProfessorDayLimitConstraint.cs" />
     <Compile Include="TimeDayRequirement.cs" />
     <Compile Include="ProfessorDayAndTimeConstraint.cs" />

@@ -55,8 +55,8 @@ namespace ScheduleWPF
             */
             Configuration.Instance.Constraints.Add(new ProfessorDayConstraint(Configuration.Instance.Professors[0], new List<int> { 0, 1 }));
             //Configuration.Instance.Constraints.Add(new ProfessorTimeConstraint(Configuration.Instance.Professors[0], new TimeSpan(9,0,0), new TimeSpan(10,0,0)));
-            //Configuration.Instance.Constraints.Add(new ProfessorTimeOverlapConstraint());
-            //Configuration.Instance.Constraints.Add(new RoomTimeOverlapConstraint());
+            Configuration.Instance.Constraints.Add(new ProfessorTimeOverlapConstraint());
+            Configuration.Instance.Constraints.Add(new RoomTimeOverlapConstraint());
             Configuration.Instance.Constraints.Add(new SingleProfessorDayLimitConstraint(Configuration.Instance.Professors[2], 4));
 
             var groups = Configuration.Instance.Groups;
@@ -70,6 +70,10 @@ namespace ScheduleWPF
                 CurrentSchedule[i][groups[1]] = new ObservableCollection<Class>();
                 CurrentSchedule[i][groups[2]] = new ObservableCollection<Class>();
                 CurrentSchedule[i][groups[3]] = new ObservableCollection<Class>();
+                CurrentSchedule.SetStartTime(i, groups[0], TimeSpan.FromHours(8));
+                CurrentSchedule.SetStartTime(i, groups[1], TimeSpan.FromHours(8));
+                CurrentSchedule.SetStartTime(i, groups[2], TimeSpan.FromHours(8));
+                CurrentSchedule.SetStartTime(i, groups[3], TimeSpan.FromHours(8));
             }
             classes.Add(groups[0], new TrulyObservableCollection<ClassContainer>());
             classes.Add(groups[1], new TrulyObservableCollection<ClassContainer>());
@@ -113,6 +117,7 @@ namespace ScheduleWPF
                     if (!CurrentSchedule[day].ContainsKey(g))
                     {
                         CurrentSchedule[day].Add(g, new ObservableCollection<Class>());
+                        CurrentSchedule.SetStartTime(day, g, TimeSpan.FromHours(8));
                     }
                     if (!Configuration.Instance.Classes.ContainsKey(g))
                     {
